@@ -10,7 +10,7 @@ const ActionsContainer = ({ href, icon, children }) => (
         href={href}
         py="1"
         px="2"
-        rounded="base"
+        rounded="md"
         mr="4"
         transitionDuration="250ms"
         _hover={{ bgColor: "gray.100" }}
