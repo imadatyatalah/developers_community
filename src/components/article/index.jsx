@@ -13,7 +13,7 @@ const Article = ({ data, isProfile }) => (
         </Heading>
       )}
 
-      {data.map((article, index) => (
+      {data.map((article) => (
         <Box
           my="3"
           bg="gray.50"
@@ -21,7 +21,7 @@ const Article = ({ data, isProfile }) => (
           border="1px"
           borderColor="gray.300"
           _hover={{ borderColor: "teal.400" }}
-          key={index}
+          key={article.id}
         >
           <ArticleInfo data={article} />
 
