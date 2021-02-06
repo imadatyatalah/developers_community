@@ -7,7 +7,7 @@ const Container = ({ children }) => (
   <>
     <Box
       display={{ base: "none", lg: "block" }}
-      w="30rem"
+      maxW="380px"
       bgColor="gray.50"
       py="2"
       px="4"
@@ -29,37 +29,35 @@ const Listing = ({ data }) => (
 
       <Box pt="2">
         {data.map((item) => (
-          <>
-            <Box py="1">
-              <Divider />
-              <Box>
-                <NextLink href={`/listings/${item.category}/${item.slug}`}>
-                  <chakra.a
-                    href={`/listings/${item.category}/${item.slug}`}
-                    fontSize="md"
-                    fontWeight="500"
-                    transitionDuration="250ms"
-                    _hover={{ color: "teal.400" }}
-                  >
-                    {item.title}
-                  </chakra.a>
-                </NextLink>
-              </Box>
-
-              <Box>
-                <NextLink href={`/listings/${item.category}`}>
-                  <chakra.a
-                    href={`/listings/${item.category}`}
-                    opacity="65%"
-                    transitionDuration="250ms"
-                    _hover={{ opacity: "100%" }}
-                  >
-                    {item.category}
-                  </chakra.a>
-                </NextLink>
-              </Box>
+          <Box py="1" key={item.id}>
+            <Divider />
+            <Box>
+              <NextLink href={`/listings/${item.category}/${item.slug}`}>
+                <chakra.a
+                  href={`/listings/${item.category}/${item.slug}`}
+                  fontSize="md"
+                  fontWeight="500"
+                  transitionDuration="250ms"
+                  _hover={{ color: "teal.400" }}
+                >
+                  {item.title}
+                </chakra.a>
+              </NextLink>
             </Box>
-          </>
+
+            <Box>
+              <NextLink href={`/listings/${item.category}`}>
+                <chakra.a
+                  href={`/listings/${item.category}`}
+                  opacity="65%"
+                  transitionDuration="250ms"
+                  _hover={{ opacity: "100%" }}
+                >
+                  {item.category}
+                </chakra.a>
+              </NextLink>
+            </Box>
+          </Box>
         ))}
       </Box>
     </Container>
