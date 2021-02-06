@@ -8,6 +8,7 @@ const Article = dynamic(() => import("../../components/article"));
 
 import { fetcher, BASE_URL } from "../../../config";
 import SEO from "../../components/seo";
+import { Box } from "@chakra-ui/react";
 
 const User = ({ userData, userDataArticles, errorCode }) => {
   const router = useRouter();
@@ -41,7 +42,9 @@ const User = ({ userData, userDataArticles, errorCode }) => {
       />
 
       <UserProfile data={userInfo} />
-      <Article data={userArticles} isProfile />
+      <Box px={[4, 6, 8]} mx="auto">
+        <Article data={userArticles} isProfile />
+      </Box>
     </>
   );
 };
