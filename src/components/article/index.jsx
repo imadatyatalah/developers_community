@@ -6,7 +6,7 @@ import ArticleInfo from "./articleInfo";
 
 const Article = ({ data, isProfile }) => (
   <>
-    <Box as="section" px={[4, 6, 10]} mx="auto" minW={{ lg: "40%" }}>
+    <Box as="section" py="2" minW={{ lg: "40%" }}>
       {data != "" && (
         <Heading size="lg" fontWeight="600">
           {isProfile && `${data[0].user.name}'s`} Posts
