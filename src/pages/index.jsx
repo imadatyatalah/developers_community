@@ -1,7 +1,9 @@
+import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import useSwr from "swr";
 
 const Article = dynamic(() => import("../components/article"));
+const Listings = dynamic(() => import("../components/listings"));
 
 import config, { fetcher, BASE_URL } from "../../config";
 import SEO from "../components/seo";
@@ -22,7 +24,10 @@ const Home = ({ articles, listings }) => {
   return (
     <>
       <SEO title="Home" description={config.description} />
-      <Article data={articlesData} />
+      <Box display="flex" alignItems="start" px={[4, 6, 8]} mx="auto">
+        <Article data={articlesData} />
+        <Listings data={listingsData} />
+      </Box>
     </>
   );
 };
