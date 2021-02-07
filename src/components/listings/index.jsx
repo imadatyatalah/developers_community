@@ -6,12 +6,11 @@ import ListingsHeader from "./listingsHeader";
 const Container = ({ children }) => (
   <>
     <Box
-      display={{ base: "none", lg: "block" }}
-      maxW="380px"
+      maxW={{ lg: "380px" }}
       bgColor="gray.50"
       py="2"
       px="4"
-      ml="4"
+      ml={{ lg: "4" }}
       rounded="md"
       border="1px"
       borderColor="gray.300"
