@@ -24,7 +24,13 @@ const Home = ({ articles, listings }) => {
   return (
     <>
       <SEO title="Home" description={config.description} />
-      <Box display="flex" alignItems="start" px={[4, 6, 8]} mx="auto">
+      <Box
+        display="flex"
+        flexDir={{ base: "column-reverse", lg: "row" }}
+        alignItems={{ lg: "start" }}
+        px={[4, 6, 8]}
+        mx="auto"
+      >
         <Article data={articlesData} />
         <Listings data={listingsData} />
       </Box>
