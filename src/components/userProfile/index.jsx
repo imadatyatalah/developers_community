@@ -11,7 +11,7 @@ const UserProfile = (props) => {
 
   return (
     <>
-      <Box bgColor="teal.600" minH="15vh"></Box>
+      <Box bgColor="teal.600" minH="100px"></Box>
       <Box
         as="section"
         px={[4, 6, 10]}
