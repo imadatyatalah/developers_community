@@ -7,8 +7,8 @@ const UserProfile = dynamic(() => import("../../components/userProfile"));
 const Article = dynamic(() => import("../../components/article"));
 
 import { fetcher, BASE_URL } from "../../../config";
-import SEO from "../../components/seo";
 import { Box } from "@chakra-ui/react";
+import SEO from "../../components/seo";
 
 const User = ({ userData, userDataArticles, errorCode }) => {
   const router = useRouter();
@@ -17,21 +17,17 @@ const User = ({ userData, userDataArticles, errorCode }) => {
   const { data: userInfo } = useSwr(
     `${BASE_URL}users/by_username?url=${user}`,
     fetcher,
-    {
-      initialData: userData,
-    }
+    { initialData: userData }
   );
 
   const { data: userArticles } = useSwr(
     `${BASE_URL}articles?username=${user}`,
     fetcher,
-    {
-      initialData: userDataArticles,
-    }
+    { initialData: userDataArticles }
   );
 
   if (errorCode) {
-    return <ErrorPage statusCode={errorCode} />;
+    return <ErrorPage statusCode={errorCode.status} title={errorCode.error} />;
   }
 
   return (
@@ -57,7 +53,7 @@ export const getServerSideProps = async ({ params }) => {
     `${BASE_URL}articles?username=${params.user}`
   );
 
-  const errorCode = userData.id ? false : userData.status;
+  const errorCode = userData.error ? userData : false;
 
   return { props: { userData, userDataArticles, errorCode } };
 };
