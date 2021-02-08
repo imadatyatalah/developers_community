@@ -17,7 +17,6 @@ const Listing = ({ data }) => (
               <NextLink href={`/listings/${item.category}/${item.slug}`}>
                 <chakra.a
                   href={`/listings/${item.category}/${item.slug}`}
-                  fontSize="md"
                   fontWeight="500"
                   transitionDuration="250ms"
                   _hover={{ color: "teal.400" }}

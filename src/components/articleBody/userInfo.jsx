@@ -7,13 +7,8 @@ import styles from "./css/index.module.css";
 const Item = ({ title, data }) => (
   <>
     {data && (
-      <ListItem>
-        <Text
-          as="span"
-          fontWeight="600"
-          textColor="gray.600"
-          textTransform="uppercase"
-        >
+      <ListItem textColor="gray.600">
+        <Text as="span" fontWeight="500" textColor="gray.700">
           {title}
         </Text>
         {data}
