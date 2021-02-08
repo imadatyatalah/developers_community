@@ -10,7 +10,7 @@ const ListingsHeader = () => (
       alignItems="center"
     >
       <Heading size="lg" fontWeight="600">
-        Listing
+        Listings
       </Heading>
 
       <NextLink href="/listings">
