@@ -1,29 +1,12 @@
 import { Box, chakra, Divider } from "@chakra-ui/react";
 import NextLink from "next/link";
 
+import SideBarContainer from "../UI/sideBarContainer";
 import ListingsHeader from "./listingsHeader";
-
-const Container = ({ children }) => (
-  <>
-    <Box
-      maxW={{ lg: "380px" }}
-      bgColor="gray.50"
-      py="2"
-      px="4"
-      ml={{ lg: "4" }}
-      rounded="md"
-      border="1px"
-      borderColor="gray.300"
-      _hover={{ borderColor: "teal.400" }}
-    >
-      {children}
-    </Box>
-  </>
-);
 
 const Listing = ({ data }) => (
   <>
-    <Container>
+    <SideBarContainer>
       <ListingsHeader />
 
       <Box pt="2">
@@ -59,7 +42,7 @@ const Listing = ({ data }) => (
           </Box>
         ))}
       </Box>
-    </Container>
+    </SideBarContainer>
   </>
 );
 
