@@ -8,8 +8,8 @@ import styles from "./css/index.module.css";
 const ArticleInfo = ({ data }) => (
   <>
     <Box display="flex" alignItems="center">
-      <NextLink href={data.user.username}>
-        <chakra.a href={data.user.username} px="5px" pt="5px">
+      <NextLink href={`/${data.user.username}`}>
+        <chakra.a href={`/${data.user.username}`} px="5px" pt="5px">
           <NextImage
             src={data.user.profile_image_90}
             width="40"
@@ -21,9 +21,9 @@ const ArticleInfo = ({ data }) => (
         </chakra.a>
       </NextLink>
       <Box>
-        <NextLink href={data.user.username}>
+        <NextLink href={`/${data.user.username}`}>
           <chakra.a
-            href={data.user.username}
+            href={`/${data.user.username}`}
             fontWeight="600"
             opacity="65%"
             transitionDuration="250ms"
