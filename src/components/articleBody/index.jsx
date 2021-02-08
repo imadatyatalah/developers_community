@@ -7,7 +7,7 @@ const ArticleBody = (props) => {
 
   return (
     <>
-      <Box>
+      <Box my="2" rounded="md" bgColor="gray.50">
         <ArticleHeader {...props} />
         <Box
           as="article"
