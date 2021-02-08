@@ -4,6 +4,8 @@ import NextImage from "next/image";
 import ArticleTags from "../article/articleTags";
 import ArticleInfo from "../article/articleInfo";
 
+import styles from "./css/index.module.css";
+
 const ArticleHeader = (props) => {
   const { data } = props;
 
@@ -16,6 +18,7 @@ const ArticleHeader = (props) => {
           height="420"
           alt={data.title}
           priority
+          className={styles.articleCoverImage}
         />
       )}
       <Box>
