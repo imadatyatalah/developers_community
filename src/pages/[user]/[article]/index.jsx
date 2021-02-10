@@ -10,9 +10,11 @@ const UserArticle = dynamic(() =>
 );
 
 import { BASE_URL, fetcher } from "../../../../config";
+import { getUserArticle } from "../../../lib/userArticle";
+import { getUser } from "../../../lib/user";
 import SEO from "../../../components/seo";
 
-const Article = ({ userArticle, userData, errorCode }) => {
+const Article = ({ userArticle, userInfo, errorCode }) => {
   const router = useRouter();
   const { user, article } = router.query;
 
@@ -24,16 +26,21 @@ const Article = ({ userArticle, userData, errorCode }) => {
     }
   );
 
-  const { data: articleUserData } = useSwr(
+  const { data: userData } = useSwr(
     `${BASE_URL}users/by_username?url=${user}`,
     fetcher,
     {
-      initialData: userData,
+      initialData: userInfo,
     }
   );
 
   if (errorCode) {
-    return <ErrorPage statusCode={errorCode.status} title={errorCode.error} />;
+    return (
+      <ErrorPage
+        statusCode={errorCode.status}
+        title={`article ${errorCode.error}`}
+      />
+    );
   }
 
   return (
@@ -49,24 +56,20 @@ const Article = ({ userArticle, userData, errorCode }) => {
         px={[4, 6, 8]}
         mx="auto"
       >
-        <ArticleBody data={articleData} userData={articleUserData} />
-        <UserArticle data={articleUserData} />
+        <ArticleBody data={articleData} userData={userData} />
+        <UserArticle data={userData} />
       </Box>
     </>
   );
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const userArticle = await fetcher(
-    `${BASE_URL}/articles/${params.user}/${params.article}`
-  );
-  const userData = await fetcher(
-    `${BASE_URL}users/by_username?url=${params.user}`
-  );
+  const userArticle = await getUserArticle(params.user, params.article);
+  const userInfo = await getUser(params.user);
 
   const errorCode = userArticle.error ? userArticle : false;
 
-  return { props: { userArticle, userData, errorCode } };
+  return { props: { userArticle, userInfo, errorCode } };
 };
 
 export default Article;
