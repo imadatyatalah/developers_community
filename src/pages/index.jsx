@@ -6,6 +6,8 @@ const Article = dynamic(() => import("../components/article"));
 const Listings = dynamic(() => import("../components/listings"));
 
 import config, { fetcher, BASE_URL } from "../../config";
+import { getArticles } from "../lib/articles";
+import { getListings } from "../lib/listings";
 import SEO from "../components/seo";
 
 const Home = ({ articles, listings }) => {
@@ -39,8 +41,8 @@ const Home = ({ articles, listings }) => {
 };
 
 export const getServerSideProps = async () => {
-  const articles = await fetcher(`${BASE_URL}articles`);
-  const listings = await fetcher(`${BASE_URL}listings?per_page=5`);
+  const articles = await getArticles();
+  const listings = await getListings();
 
   return { props: { articles, listings } };
 };
