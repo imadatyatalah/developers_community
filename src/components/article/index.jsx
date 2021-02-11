@@ -5,12 +5,12 @@ import ArticleActions from "./articleActions";
 import ArticleInfo from "./articleInfo";
 import ArticleTags from "./articleTags";
 
-const Article = ({ data, isProfile }) => (
+const Article = ({ data, userData, isProfile, isUser }) => (
   <>
-    <Box as="section" py="2" minW={{ lg: "40%" }}>
+    <Box as="section" py="2">
       {data != "" && (
         <Heading size="lg" fontWeight="600">
-          {isProfile && `${data[0].user.name}'s`} Posts
+          {isProfile && userData.name} Posts
         </Heading>
       )}
 
@@ -24,7 +24,7 @@ const Article = ({ data, isProfile }) => (
           _hover={{ borderColor: "teal.400" }}
           key={article.id}
         >
-          <ArticleInfo data={article} />
+          <ArticleInfo data={article} isUser={isUser} />
 
           <Box px={{ base: "5px", md: "50px" }}>
             <NextLink href={article.path}>
