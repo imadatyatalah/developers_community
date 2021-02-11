@@ -1,4 +1,13 @@
-import { Box, chakra, List, ListItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  chakra,
+  Icon,
+  List,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
+import { FiExternalLink } from "react-icons/fi";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
@@ -17,7 +26,7 @@ const Item = ({ title, data }) => (
   </>
 );
 
-const UserInfo = ({ data }) => (
+const Header = ({ data }) => (
   <>
     <Box mt="-35px">
       <NextLink href={`/${data.username}`}>
@@ -39,15 +48,45 @@ const UserInfo = ({ data }) => (
         {data.name}
       </chakra.a>
     </NextLink>
+  </>
+);
+
+const UserInfo = ({ data, isOrganization }) => (
+  <>
+    <Header data={data} />
+
+    {isOrganization && data.tag_line && (
+      <Text py="2" textColor="gray.600">
+        {data.tag_line}
+      </Text>
+    )}
 
     <Text py="2" textColor="gray.600">
-      {data.summary}
+      {data.summary ? data.summary : "404 bio not found"}
     </Text>
 
-    <List>
-      <Item title="Location: " data={data.location} />
-      <Item title="Joined: " data={data.joined_at} />
-    </List>
+    {!isOrganization && (
+      <List>
+        <Item title="Location: " data={data.location} />
+        <Item title="Joined: " data={data.joined_at} />
+      </List>
+    )}
+
+    {isOrganization && data.url && (
+      <>
+        <Button colorScheme="teal" variant="link">
+          <chakra.a
+            href={data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            d="flex"
+          >
+            Visit {data.username}{" "}
+            <Icon as={FiExternalLink} w="6" h="6" pl="3px" />
+          </chakra.a>
+        </Button>
+      </>
+    )}
   </>
 );
 
