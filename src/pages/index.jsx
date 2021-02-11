@@ -33,7 +33,7 @@ const Home = ({ articles, listings }) => {
         px={[4, 6, 8]}
         mx="auto"
       >
-        <Article data={articlesData} />
+        <Article data={articlesData} isUser={!articlesData.organization} />
         <Listings data={listingsData} />
       </Box>
     </>
