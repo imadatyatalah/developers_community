@@ -27,6 +27,7 @@ const UserInfo = ({ data }) => (
             width="60"
             height="60"
             alt={data.name}
+            priority
             className={styles.userImage}
           />
         </chakra.a>
