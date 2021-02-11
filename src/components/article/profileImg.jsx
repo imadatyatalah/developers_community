@@ -33,7 +33,7 @@ const ProfileImg = (props) => {
 
   return (
     <>
-      {organization ? (
+      {organization && props.isUser ? (
         <>
           <ProfileImgComp
             href={`/${organization.username}`}
