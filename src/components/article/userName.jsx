@@ -23,7 +23,7 @@ const UserName = (props) => {
 
   return (
     <>
-      {organization ? (
+      {organization && props.isUser ? (
         <Text color="gray.600">
           <UserNameComp href={user.username}>{user.name}</UserNameComp> for{" "}
           <UserNameComp href={organization.username}>
