@@ -1,3 +1,7 @@
 .userImage {
   border-radius: 100%;
 }
+
+.orgImage {
+  border-radius: 15%;
+}
