@@ -1,8 +1,18 @@
 import { List, ListItem, Icon } from "@chakra-ui/react";
 import { FaBirthdayCake } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import moment from "moment";
 
-const UserInfo = ({ data }) => (
+const Item = ({ icon, children }) => (
+  <>
+    <ListItem px="2">
+      <Icon as={icon} opacity="70%" w="5" h="5" mt="-2px" />
+      {children}
+    </ListItem>
+  </>
+);
+
+const UserInfo = ({ data, isOrganization }) => (
   <>
     <List
       d="flex"
@@ -10,17 +20,13 @@ const UserInfo = ({ data }) => (
       justifyContent={{ md: "center", lg: "unset" }}
       mx={{ md: "auto", lg: "0" }}
     >
-      <ListItem px="2">
-        <Icon as={FaBirthdayCake} opacity="70%" w="5" h="5" mt="-2px" /> Joined
-        on {data.joined_at}
-      </ListItem>
+      <Item icon={FaBirthdayCake}>
+        {" "}
+        Joined on{" "}
+        {isOrganization ? moment(data.joined_at).format("ll") : data.joined_at}
+      </Item>
 
-      {data.location && (
-        <ListItem px="2">
-          <Icon as={IoLocationSharp} opacity="70%" w="5" h="5" mt="-2px" />{" "}
-          {data.location}
-        </ListItem>
-      )}
+      {data.location && <Item icon={IoLocationSharp}> {data.location}</Item>}
     </List>
   </>
 );
