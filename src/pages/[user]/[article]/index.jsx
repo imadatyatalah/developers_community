@@ -12,6 +12,7 @@ const UserArticle = dynamic(() =>
 import { BASE_URL, fetcher } from "../../../../config";
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
+import { getOrganization } from "../../../lib/organization";
 import SEO from "../../../components/seo";
 
 const Article = ({ userArticle, userInfo, errorCode }) => {
@@ -27,7 +28,9 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
   );
 
   const { data: userData } = useSwr(
-    `${BASE_URL}users/by_username?url=${user}`,
+    articleData.organization
+      ? `${BASE_URL}organizations/${user}`
+      : `${BASE_URL}users/by_username?url=${user}`,
     fetcher,
     {
       initialData: userInfo,
@@ -57,7 +60,10 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
         mx="auto"
       >
         <ArticleBody data={articleData} userData={userData} />
-        <UserArticle data={userData} />
+        <UserArticle
+          data={userData}
+          isOrganization={articleData.organization}
+        />
       </Box>
     </>
   );
@@ -65,7 +71,9 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const userArticle = await getUserArticle(params.user, params.article);
-  const userInfo = await getUser(params.user);
+  const userInfo = userArticle.organization
+    ? await getOrganization(params.user)
+    : await getUser(params.user);
 
   const errorCode = userArticle.error ? userArticle : false;
 
