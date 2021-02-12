@@ -1,15 +1,8 @@
 import { useRouter } from "next/router";
-import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import useSwr from "swr";
 
-const ErrorPage = dynamic(() => import("next/error"));
-const ArticleBody = dynamic(() => import("../../../components/articleBody"));
-const UserArticle = dynamic(() =>
-  import("../../../components/articleBody/userArticle")
-);
+const ArticlePage = dynamic(() => import("../../../components/pages/article"));
 
-import { BASE_URL, fetcher } from "../../../../config";
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
@@ -19,56 +12,17 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
   const router = useRouter();
   const { user, article } = router.query;
 
-  const { data: articleData } = useSwr(
-    `${BASE_URL}/articles/${user}/${article}`,
-    fetcher,
-    {
-      initialData: userArticle,
-    }
-  );
-
-  const { data: userData } = useSwr(
-    articleData.organization
-      ? `${BASE_URL}organizations/${user}`
-      : `${BASE_URL}users/by_username?url=${user}`,
-    fetcher,
-    {
-      initialData: userInfo,
-    }
-  );
-
-  if (errorCode) {
-    return (
-      <ErrorPage
-        statusCode={errorCode.status}
-        title={`article ${errorCode.error}`}
-      />
-    );
-  }
-
   return (
     <>
-      <SEO
-        title={articleData.title}
-        description={articleData.description || "404 description not found"}
+      <SEO title={userArticle.title} description={userArticle.description} />
+
+      <ArticlePage
+        user={user}
+        article={article}
+        userArticle={userArticle}
+        userInfo={userInfo}
+        errorCode={errorCode}
       />
-      <Box
-        display="flex"
-        flexDir={{ base: "column", lg: "row" }}
-        alignItems={{ lg: "start" }}
-        px={[4, 6, 8]}
-        mx="auto"
-      >
-        <ArticleBody
-          data={articleData}
-          userData={userData}
-          isOrganizationArticle={articleData.organization}
-        />
-        <UserArticle
-          data={userData}
-          isOrganization={articleData.organization}
-        />
-      </Box>
     </>
   );
 };
