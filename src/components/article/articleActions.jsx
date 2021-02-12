@@ -30,7 +30,7 @@ const ArticleActions = ({ data }) => (
       </ActionsContainer>
 
       <ActionsContainer href={`${data.path}#comments`} icon={BiMessageRounded}>
-        {data.comments_count} comments
+        {data.comments_count} Comments
       </ActionsContainer>
     </Box>
   </>

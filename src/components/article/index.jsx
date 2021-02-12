@@ -7,7 +7,7 @@ import ArticleTags from "./articleTags";
 
 const Article = ({ data, userData, isProfile, isUser }) => (
   <>
-    <Box as="section" py="2">
+    <Box as="section" py="2" w="100%">
       {data != "" && (
         <Heading size="lg" fontWeight="600">
           {isProfile && userData.name} Posts
