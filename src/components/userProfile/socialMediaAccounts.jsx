@@ -41,8 +41,8 @@ const SocialMediaAccounts = ({ data }) => (
       />
 
       <IconContainer
-        data={data.website_url}
-        href={data.website_url}
+        data={data.website_url || data.url}
+        href={data.website_url || data.url}
         icon={FiExternalLink}
       />
     </List>

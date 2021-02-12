@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-const SideBarContainer = ({ children }) => (
+const SideBarContainer = ({ children, ...props }) => (
   <>
     <Box
       as="section"
@@ -14,6 +14,7 @@ const SideBarContainer = ({ children }) => (
       border="1px"
       borderColor="gray.300"
       _hover={{ borderColor: "teal.400" }}
+      {...props}
     >
       {children}
     </Box>
