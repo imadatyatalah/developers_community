@@ -5,6 +5,7 @@ import ArticleTags from "../article/articleTags";
 import ArticleInfo from "../article/articleInfo";
 
 import styles from "./css/index.module.css";
+import OrganizationProfile from "./organizationProfile";
 
 const ArticleHeader = (props) => {
   const { data } = props;
@@ -21,7 +22,12 @@ const ArticleHeader = (props) => {
           className={styles.articleCoverImage}
         />
       )}
+
       <Box>
+        {props.isOrganizationArticle && (
+          <OrganizationProfile data={data} {...props} />
+        )}
+
         <Heading as="h1" pt="2">
           {data.title}
         </Heading>
