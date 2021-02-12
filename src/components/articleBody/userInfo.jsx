@@ -26,7 +26,7 @@ const Item = ({ title, data }) => (
   </>
 );
 
-const Header = ({ data }) => (
+const Header = ({ data, isOrganization }) => (
   <>
     <Box mt="-35px">
       <NextLink href={`/${data.username}`}>
@@ -37,7 +37,7 @@ const Header = ({ data }) => (
             height="60"
             alt={data.name}
             priority
-            className={styles.userImage}
+            className={isOrganization ? styles.orgImage : styles.userImage}
           />
         </chakra.a>
       </NextLink>
@@ -53,7 +53,7 @@ const Header = ({ data }) => (
 
 const UserInfo = ({ data, isOrganization }) => (
   <>
-    <Header data={data} />
+    <Header data={data} isOrganization={isOrganization} />
 
     {isOrganization && data.tag_line && (
       <Text py="2" textColor="gray.600">
