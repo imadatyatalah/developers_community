@@ -59,7 +59,11 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
         px={[4, 6, 8]}
         mx="auto"
       >
-        <ArticleBody data={articleData} userData={userData} />
+        <ArticleBody
+          data={articleData}
+          userData={userData}
+          isOrganizationArticle={articleData.organization}
+        />
         <UserArticle
           data={userData}
           isOrganization={articleData.organization}
