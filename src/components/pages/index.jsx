@@ -1,11 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
 import useSwr from "swr";
 
-const Article = dynamic(() => import("../article"));
-const Listings = dynamic(() => import("../listings"));
-
 import { BASE_URL, fetcher } from "../../../config";
+import Article from "../article";
+import Listings from "../listings";
 
 const HomePage = ({ articles, listings }) => {
   const { data: articlesData } = useSwr(`${BASE_URL}articles`, fetcher, {

@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const ArticlePage = dynamic(() => import("../../../components/pages/article"));
 
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
 import SEO from "../../../components/seo";
-import ArticlePage from "../../../components/pages/article";
 
 const Article = ({ userArticle, userInfo, errorCode }) => {
   const router = useRouter();

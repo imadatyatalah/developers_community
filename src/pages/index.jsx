@@ -1,8 +1,11 @@
+import dynamic from "next/dynamic";
+
+const HomePage = dynamic(() => import("../components/pages"));
+
 import { getArticles } from "../lib/articles";
 import { getListings } from "../lib/listings";
 import SEO from "../components/seo";
 import config from "../../config";
-import HomePage from "../components/pages";
 
 const Home = ({ articles, listings }) => {
   return (
