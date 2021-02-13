@@ -8,13 +8,10 @@ const ArticleBody = (props) => {
   return (
     <>
       <Box my="2" rounded="md" bgColor="gray.50">
-        <ArticleHeader {...props} />
-        <Box
-          as="article"
-          py="2"
-          overflow="hidden"
-          dangerouslySetInnerHTML={{ __html: data.body_html }}
-        />
+        <Box as="article" py="2">
+          <ArticleHeader {...props} />
+          <Box dangerouslySetInnerHTML={{ __html: data.body_html }} />
+        </Box>
       </Box>
     </>
   );

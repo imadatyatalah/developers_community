@@ -8,7 +8,7 @@ const ArticleInfo = (props) => {
 
   return (
     <>
-      <Box display="flex" alignItems="center">
+      <Box as="header" display="flex" alignItems="center">
         <ProfileImg {...props} />
 
         <Box>
