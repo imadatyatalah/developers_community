@@ -1,12 +1,17 @@
 import { Box } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import useSwr from "swr";
 
 import { BASE_URL, fetcher } from "../../../config";
-import ErrorPage from "next/error";
-import UserProfile from "../userProfile";
-import Article from "../article";
-import OrganisationTeam from "../articleBody/organisationUsers";
-import OrganisationTechStack from "../articleBody/organizationTechStack";
+const ErrorPage = dynamic(() => import("next/error"));
+const UserProfile = dynamic(() => import("../userProfile"));
+const Article = dynamic(() => import("../article"));
+const OrganisationTeam = dynamic(() =>
+  import("../articleBody/organisationUsers")
+);
+const OrganisationTechStack = dynamic(() =>
+  import("../articleBody/organizationTechStack")
+);
 
 const UserPage = ({
   user,
