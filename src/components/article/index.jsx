@@ -30,7 +30,7 @@ const Article = ({ data, userData, isProfile, isUser }) => (
             <NextLink href={article.path}>
               <chakra.a
                 href={article.path}
-                fontSize="2xl"
+                fontSize={{ base: "xl", sm: "2xl" }}
                 fontWeight="700"
                 transitionDuration="250ms"
                 _hover={{ color: "teal.400" }}
