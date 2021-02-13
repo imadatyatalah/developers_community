@@ -19,7 +19,7 @@ const Home = ({ articles, listings }) => {
 
 export const getServerSideProps = async () => {
   const articles = await getArticles();
-  const listings = await getListings();
+  const listings = await getListings(4);
 
   return { props: { articles, listings } };
 };
