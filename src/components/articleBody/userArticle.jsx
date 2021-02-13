@@ -1,17 +1,17 @@
 import { Box } from "@chakra-ui/react";
 
-import SideBarContainer from "../UI/sideBarContainer";
+import DefaultContainer from "../UI/defaultContainer";
 import UserInfo from "./userInfo";
 
 const UserArticle = (props) => (
   <>
-    <SideBarContainer>
+    <DefaultContainer isSideComp>
       <Box bgColor="teal.600" minH="60px" roundedTop="md"></Box>
 
       <Box as="section" px="4" mx="auto">
         <UserInfo {...props} />
       </Box>
-    </SideBarContainer>
+    </DefaultContainer>
   </>
 );
 

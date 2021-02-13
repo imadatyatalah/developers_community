@@ -1,14 +1,14 @@
 import { Heading, Text } from "@chakra-ui/react";
-import SideBarContainer from "../UI/sideBarContainer";
+import DefaultContainer from "../UI/defaultContainer";
 
 const OrganizationTechStack = ({ data }) => (
   <>
-    <SideBarContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
+    <DefaultContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
       <Heading size="lg" fontWeight="600">
         Our stack
       </Heading>
       <Text>{data}</Text>
-    </SideBarContainer>
+    </DefaultContainer>
   </>
 );
 

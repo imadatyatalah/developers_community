@@ -1,13 +1,14 @@
 import { Box, Heading, chakra } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-import ArticleActions from "./articleActions";
+import DefaultContainer from "../UI/defaultContainer";
 import ArticleInfo from "./articleInfo";
 import ArticleTags from "./articleTags";
+import ArticleActions from "./articleActions";
 
 const Article = ({ data, userData, isProfile, isUser }) => (
   <>
-    <Box as="section" py="2" w="100%">
+    <Box py="2" w="100%">
       {data != "" && (
         <Heading size="lg" fontWeight="600">
           {isProfile && userData.name} Posts
@@ -15,15 +16,7 @@ const Article = ({ data, userData, isProfile, isUser }) => (
       )}
 
       {data.map((article) => (
-        <Box
-          my="3"
-          bg="gray.50"
-          rounded="md"
-          border="1px"
-          borderColor="gray.300"
-          _hover={{ borderColor: "teal.400" }}
-          key={article.id}
-        >
+        <DefaultContainer my="3" key={article.id}>
           <ArticleInfo data={article} isUser={isUser} />
 
           <Box px={{ base: "5px", md: "50px" }}>
@@ -45,7 +38,7 @@ const Article = ({ data, userData, isProfile, isUser }) => (
 
             <ArticleActions data={article} />
           </Box>
-        </Box>
+        </DefaultContainer>
       ))}
     </Box>
   </>

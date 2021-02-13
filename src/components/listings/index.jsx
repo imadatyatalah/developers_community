@@ -1,12 +1,12 @@
 import { Box, chakra, Divider } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-import SideBarContainer from "../UI/sideBarContainer";
+import DefaultContainer from "../UI/defaultContainer";
 import ListingsHeader from "./listingsHeader";
 
 const Listing = ({ data }) => (
   <>
-    <SideBarContainer>
+    <DefaultContainer isSideComp>
       <ListingsHeader />
 
       <Box pt="2">
@@ -41,7 +41,7 @@ const Listing = ({ data }) => (
           </Box>
         ))}
       </Box>
-    </SideBarContainer>
+    </DefaultContainer>
   </>
 );
 

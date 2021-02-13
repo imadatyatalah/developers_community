@@ -2,11 +2,11 @@ import { Box, chakra, Heading } from "@chakra-ui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
-import SideBarContainer from "../UI/sideBarContainer";
+import DefaultContainer from "../UI/defaultContainer";
 
 const OrganisationUsers = ({ data }) => (
   <>
-    <SideBarContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
+    <DefaultContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
       <Heading size="lg" fontWeight="600">
         Meet the team
       </Heading>
@@ -28,7 +28,7 @@ const OrganisationUsers = ({ data }) => (
           </NextLink>
         ))}
       </Box>
-    </SideBarContainer>
+    </DefaultContainer>
   </>
 );
 
