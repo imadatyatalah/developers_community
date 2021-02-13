@@ -1,7 +1,9 @@
 .userImage {
   border-radius: 100%;
+  background-color: white;
 }
 
 .orgImage {
   border-radius: 15%;
+  background-color: white;
 }
