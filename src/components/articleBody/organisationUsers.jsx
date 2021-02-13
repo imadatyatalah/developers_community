@@ -4,8 +4,6 @@ import NextImage from "next/image";
 
 import SideBarContainer from "../UI/sideBarContainer";
 
-import styles from "./css/index.module.css";
-
 const OrganisationUsers = ({ data }) => (
   <>
     <SideBarContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
@@ -24,7 +22,7 @@ const OrganisationUsers = ({ data }) => (
                 alt={user.name}
                 title={user.name}
                 priority
-                className={styles.userImage}
+                className="userImage"
               />
             </chakra.a>
           </NextLink>

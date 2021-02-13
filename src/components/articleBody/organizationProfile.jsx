@@ -2,8 +2,6 @@ import { Box, chakra } from "@chakra-ui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
-import styles from "./css/index.module.css";
-
 const OrganizationProfile = ({ data }) => {
   const href = `/${data.organization.username}`;
 
@@ -18,7 +16,7 @@ const OrganizationProfile = ({ data }) => {
               height="40"
               alt={data.name}
               priority
-              className={styles.orgImage}
+              className="orgImage"
             />
           </chakra.a>
         </NextLink>

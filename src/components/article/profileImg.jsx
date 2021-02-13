@@ -2,8 +2,6 @@ import { chakra } from "@chakra-ui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
-import styles from "./css/index.module.css";
-
 const ProfileImgComp = ({
   href,
   profileImg,
@@ -41,7 +39,7 @@ const ProfileImg = (props) => {
             profileImgAlt={organization.name}
             size="40"
             px="5px"
-            styles={styles.orgImage}
+            styles="orgImage"
           />
           <ProfileImgComp
             href={`/${user.username}`}
@@ -51,7 +49,7 @@ const ProfileImg = (props) => {
             ml="-8"
             px="5px"
             pt="8"
-            styles={styles.userImage}
+            styles="userImage"
           />
         </>
       ) : (
@@ -62,7 +60,7 @@ const ProfileImg = (props) => {
           size="40"
           px="5px"
           pt="5px"
-          styles={styles.userImage}
+          styles="userImage"
         />
       )}
     </>

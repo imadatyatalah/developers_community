@@ -11,8 +11,6 @@ import { FiExternalLink } from "react-icons/fi";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
-import styles from "./css/index.module.css";
-
 const Item = ({ title, data }) => (
   <>
     {data && (
@@ -37,7 +35,7 @@ const Header = ({ data, isOrganization }) => (
             height="60"
             alt={data.name}
             priority
-            className={isOrganization ? styles.orgImage : styles.userImage}
+            className={isOrganization ? "orgImage" : "userImage"}
           />
         </chakra.a>
       </NextLink>
