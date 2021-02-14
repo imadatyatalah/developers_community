@@ -5,10 +5,15 @@ import UserInfo from "./userInfo";
 
 const UserArticle = (props) => (
   <>
-    <DefaultContainer isSideComp>
+    <DefaultContainer
+      my="2"
+      minW={{ lg: "350px" }}
+      maxW={{ lg: "350px" }}
+      isSideComp
+    >
       <Box bgColor="teal.600" minH="60px" roundedTop="md"></Box>
 
-      <Box as="section" px="4" mx="auto">
+      <Box px="4" mx="auto">
         <UserInfo {...props} />
       </Box>
     </DefaultContainer>
