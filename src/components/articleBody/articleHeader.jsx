@@ -23,9 +23,7 @@ const ArticleHeader = (props) => {
         )}
 
         <Box>
-          {props.isOrganizationArticle && (
-            <OrganizationProfile data={data} {...props} />
-          )}
+          {props.isOrganizationArticle && <OrganizationProfile data={data} />}
 
           <Heading as="h1" pt="2">
             {data.title}
