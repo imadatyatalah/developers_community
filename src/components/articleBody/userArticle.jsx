@@ -6,7 +6,8 @@ import UserInfo from "./userInfo";
 const UserArticle = (props) => (
   <>
     <DefaultContainer
-      my="2"
+      mt="2"
+      mb="4"
       minW={{ lg: "350px" }}
       maxW={{ lg: "350px" }}
       isSideComp

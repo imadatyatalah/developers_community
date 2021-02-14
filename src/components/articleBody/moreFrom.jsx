@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import DefaultContainer from "../UI/defaultContainer";
 import ArticleTags from "../article/articleTags";
 
-const MoreFromHeader = ({ user }) => (
+const Header = ({ user }) => (
   <>
     <Box as="header">
       <Box fontSize="2xl" fontWeight="600">
@@ -22,12 +22,12 @@ const MoreFromHeader = ({ user }) => (
 const MoreFrom = ({ data, user }) => (
   <>
     <DefaultContainer
-      my="2"
+      mb="2"
       minW={{ lg: "350px" }}
       maxW={{ lg: "350px" }}
       isSideComp
     >
-      <MoreFromHeader user={user} />
+      <Header user={user} />
 
       <Box pt="2">
         {data.map((item) => (
