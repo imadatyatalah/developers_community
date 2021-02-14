@@ -6,7 +6,6 @@ const UserPage = dynamic(() => import("../../components/pages/user"));
 import { getUser } from "../../lib/user";
 import { getOrganization } from "../../lib/organization";
 import { getUserArticles } from "../../lib/userArticles";
-import { getOrganizationArticles } from "../../lib/organizationArticles";
 import { getOrganizationUsers } from "../../lib/organizationUsers";
 import SEO from "../../components/seo";
 
@@ -34,14 +33,11 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const user = await getUser(params.user);
-  const userArts = await getUserArticles(params.user);
 
   const userInfo =
     user.type_of === "user" ? user : await getOrganization(params.user);
 
-  const userArticles = userArts.organization
-    ? await getOrganizationArticles(params.user)
-    : userArts;
+  const userArticles = await getUserArticles(params.user, 30);
 
   const organizationUsers = await getOrganizationUsers(params.user);
 
