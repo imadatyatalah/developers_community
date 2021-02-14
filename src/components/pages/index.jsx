@@ -11,7 +11,7 @@ const HomePage = ({ articles, listings }) => {
   });
 
   const { data: listingsData } = useSwr(
-    `${BASE_URL}listings?per_page=5`,
+    `${BASE_URL}listings?per_page=4`,
     fetcher,
     {
       initialData: listings,
