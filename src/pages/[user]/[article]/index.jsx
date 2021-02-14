@@ -6,9 +6,10 @@ const ArticlePage = dynamic(() => import("../../../components/pages/article"));
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
+import { getUserArticles } from "../../../lib/userArticles";
 import SEO from "../../../components/seo";
 
-const Article = ({ userArticle, userInfo, errorCode }) => {
+const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
   const router = useRouter();
   const { user, article } = router.query;
 
@@ -21,6 +22,7 @@ const Article = ({ userArticle, userInfo, errorCode }) => {
         article={article}
         userArticle={userArticle}
         userInfo={userInfo}
+        userArticles={userArticles}
         errorCode={errorCode}
       />
     </>
@@ -32,10 +34,11 @@ export const getServerSideProps = async ({ params }) => {
   const userInfo = userArticle.organization
     ? await getOrganization(params.user)
     : await getUser(params.user);
+  const userArticles = await getUserArticles(params.user, 3);
 
   const errorCode = userArticle.error ? userArticle : false;
 
-  return { props: { userArticle, userInfo, errorCode } };
+  return { props: { userArticle, userInfo, userArticles, errorCode } };
 };
 
 export default Article;

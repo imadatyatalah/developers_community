@@ -5,8 +5,16 @@ import { BASE_URL, fetcher } from "../../../config";
 import ErrorPage from "next/error";
 import ArticleBody from "../articleBody";
 import UserArticle from "../articleBody/userArticle";
+import MoreFrom from "../articleBody/moreFrom";
 
-const ArticlePage = ({ user, article, userArticle, userInfo, errorCode }) => {
+const ArticlePage = ({
+  user,
+  article,
+  userArticle,
+  userInfo,
+  userArticles,
+  errorCode,
+}) => {
   const { data: articleData } = useSwr(
     `${BASE_URL}/articles/${user}/${article}`,
     fetcher,
@@ -22,6 +30,14 @@ const ArticlePage = ({ user, article, userArticle, userInfo, errorCode }) => {
     fetcher,
     {
       initialData: userInfo,
+    }
+  );
+
+  const { data: userArticlesData } = useSwr(
+    `${BASE_URL}articles?username=${user}&per_page=3`,
+    fetcher,
+    {
+      initialData: userArticles,
     }
   );
 
@@ -48,10 +64,13 @@ const ArticlePage = ({ user, article, userArticle, userInfo, errorCode }) => {
           userData={userData}
           isOrganizationArticle={articleData.organization}
         />
-        <UserArticle
-          data={userData}
-          isOrganization={articleData.organization}
-        />
+        <Box>
+          <UserArticle
+            data={userData}
+            isOrganization={articleData.organization}
+          />
+          <MoreFrom data={userArticlesData} user={userData} />
+        </Box>
       </Box>
     </>
   );
