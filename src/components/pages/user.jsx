@@ -5,8 +5,8 @@ import { BASE_URL, fetcher } from "../../../config";
 import ErrorPage from "next/error";
 import UserProfile from "../userProfile";
 import Article from "../article";
-import OrganisationTeam from "../articleBody/organisationUsers";
-import OrganisationTechStack from "../articleBody/organizationTechStack";
+import OrganisationTeam from "../userProfile/organisationUsers";
+import OrganisationTechStack from "../userProfile/organizationTechStack";
 
 const UserPage = ({
   user,
