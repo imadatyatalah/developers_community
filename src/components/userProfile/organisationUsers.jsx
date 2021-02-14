@@ -6,7 +6,12 @@ import DefaultContainer from "../UI/defaultContainer";
 
 const OrganisationUsers = ({ data }) => (
   <>
-    <DefaultContainer my="2" minW={{ lg: "350px" }} maxW={{ lg: "350px" }}>
+    <DefaultContainer
+      my="2"
+      minW={{ lg: "350px" }}
+      maxW={{ lg: "350px" }}
+      isSideComp
+    >
       <Heading size="lg" fontWeight="600">
         Meet the team
       </Heading>
