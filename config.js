@@ -4,7 +4,7 @@ export default {
     name: "Imad Atyat-Alah",
   },
   description:
-    "Developers Community uses dev.to api endpoint to fetch data from, You can call i dev.to clone!",
+    "Developers Community uses dev.to api endpoint to fetch data from, You can call it dev.to clone!",
 };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
