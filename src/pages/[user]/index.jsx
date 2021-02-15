@@ -37,9 +37,7 @@ export const getServerSideProps = async ({ params }) => {
 
   const userArticles = await getUserArticles(params.user, 30);
 
-  const organizationUsers =
-    userInfo.type_of === "organization" &&
-    (await getOrganizationUsers(params.user));
+  const organizationUsers = await getOrganizationUsers(params.user);
 
   const errorCode = userInfo.error ? userInfo : false;
 
