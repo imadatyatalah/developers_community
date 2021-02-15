@@ -1,8 +1,10 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
+import dynamic from "next/dynamic";
+
+const UserInfo = dynamic(() => import("./userInfo"));
 
 import SocialMediaAccounts from "./socialMediaAccounts";
-import UserInfo from "./userInfo";
 
 const UserProfile = (props) => {
   const { profile_image, name, summary, tag_line } = props.data;
