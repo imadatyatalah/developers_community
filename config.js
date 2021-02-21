@@ -11,6 +11,8 @@ export const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const BASE_URL = "https://dev.to/api/";
 
+export const MAX_WIDTH = "1440px";
+
 export const links = [
   { title: "Home", href: "/" },
   { title: "Reading List", href: "/reading-list" },
