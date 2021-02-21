@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Box } from "@chakra-ui/react";
 import useSwr from "swr";
 
-import { BASE_URL, fetcher } from "../../../../config";
+import { BASE_URL, fetcher, MAX_WIDTH } from "../../../../config";
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
@@ -60,6 +60,7 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
         display="flex"
         flexDir={{ base: "column", lg: "row" }}
         alignItems={{ lg: "start" }}
+        maxW={MAX_WIDTH}
         px={[4, 6, 8]}
         mx="auto"
       >

@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import useSwr from "swr";
 
-import { BASE_URL, fetcher } from "../../config";
+import { BASE_URL, fetcher, MAX_WIDTH } from "../../config";
 import { getArticles } from "../lib/articles";
 import { getListings } from "../lib/listings";
 import SEO from "../components/seo";
@@ -26,9 +26,11 @@ const Home = ({ articles, listings }) => {
       <SEO title="Home" />
 
       <Box
+        as="section"
         display="flex"
         flexDir={{ base: "column-reverse", lg: "row" }}
         alignItems={{ lg: "start" }}
+        maxW={MAX_WIDTH}
         px={[4, 6, 8]}
         mx="auto"
       >

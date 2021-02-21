@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 const UserInfo = dynamic(() => import("./userInfo"));
 
+import { MAX_WIDTH } from "../../../config";
 import SocialMediaAccounts from "./socialMediaAccounts";
 
 const UserProfile = (props) => {
@@ -12,7 +13,13 @@ const UserProfile = (props) => {
   return (
     <>
       <Box bgColor="teal.600" minH="100px"></Box>
-      <Box as="section" px={[4, 6, 10]} mx="auto" textAlign="center">
+      <Box
+        as="section"
+        maxW={MAX_WIDTH}
+        px={[4, 6, 10]}
+        mx="auto"
+        textAlign="center"
+      >
         <Box mt="-50px">
           <NextImage
             src={profile_image}
