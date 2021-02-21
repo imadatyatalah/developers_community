@@ -7,7 +7,7 @@ import { getUser } from "../../lib/user";
 import { getOrganization } from "../../lib/organization";
 import { getUserArticles } from "../../lib/userArticles";
 import { getOrganizationUsers } from "../../lib/organizationUsers";
-import ErrorPage from "next/error";
+import ErrorPage from "../_error";
 import SEO from "../../components/seo";
 import UserProfile from "../../components/userProfile";
 import Article from "../../components/article";
