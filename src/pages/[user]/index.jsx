@@ -1,15 +1,60 @@
 import { useRouter } from "next/router";
+import { Box } from "@chakra-ui/react";
+import useSwr from "swr";
 
+import { BASE_URL, fetcher } from "../../../config";
 import { getUser } from "../../lib/user";
 import { getOrganization } from "../../lib/organization";
 import { getUserArticles } from "../../lib/userArticles";
 import { getOrganizationUsers } from "../../lib/organizationUsers";
+import ErrorPage from "next/error";
 import SEO from "../../components/seo";
-import UserPage from "../../components/pages/user";
+import UserProfile from "../../components/userProfile";
+import Article from "../../components/article";
+import OrganisationTeam from "../../components/userProfile/organisationUsers";
+import OrganisationTechStack from "../../components/userProfile/organizationTechStack";
 
 const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
   const router = useRouter();
   const { user } = router.query;
+
+  const { data: userInfoData } = useSwr(
+    userInfo.type_of === "user"
+      ? `${BASE_URL}users/by_username?url=${user}`
+      : `${BASE_URL}organizations/${user}`,
+    fetcher,
+    {
+      initialData: userInfo,
+    }
+  );
+
+  const { data: userArticlesData } = useSwr(
+    userInfo.type_of === "user"
+      ? `${BASE_URL}articles?username=${user}`
+      : `${BASE_URL}organizations/${user}/articles`,
+    fetcher,
+    {
+      initialData: userArticles,
+    }
+  );
+
+  const { data: organizationUsersData } = useSwr(
+    userInfoData.type_of === "organization" &&
+      `${BASE_URL}organizations/${user}/users`,
+    fetcher,
+    {
+      initialData: organizationUsers,
+    }
+  );
+
+  if (errorCode) {
+    return (
+      <ErrorPage
+        statusCode={errorCode.status}
+        title={`user ${errorCode.error}`}
+      />
+    );
+  }
 
   return (
     <>
@@ -18,13 +63,32 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
         description={userInfo.summary || "404 bio not found"}
       />
 
-      <UserPage
-        user={user}
-        userInfo={userInfo}
-        userArticles={userArticles}
-        organizationUsers={organizationUsers}
-        errorCode={errorCode}
+      <UserProfile
+        data={userInfoData}
+        isOrganization={userInfo.type_of === "organization"}
       />
+      <Box
+        display="flex"
+        flexDir={{ base: "column-reverse", lg: "row" }}
+        alignItems={{ lg: "start" }}
+        px={[4, 6, 8]}
+        mx="auto"
+      >
+        <Article
+          data={userArticlesData}
+          userData={userInfoData}
+          isUser={userInfo.type_of === "user"}
+          isProfile
+        />
+        {userInfoData.type_of === "organization" && (
+          <Box d="flex" flexDir={{ base: "column-reverse", lg: "column" }}>
+            <OrganisationTeam data={organizationUsersData} />
+            {userInfoData.tech_stack && (
+              <OrganisationTechStack data={userInfoData.tech_stack} />
+            )}
+          </Box>
+        )}
+      </Box>
     </>
   );
 };
