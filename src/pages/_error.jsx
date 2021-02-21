@@ -1,4 +1,4 @@
-import { Box, chakra, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, chakra, Heading, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const Error = ({ statusCode, title }) => (
@@ -22,17 +22,11 @@ const Error = ({ statusCode, title }) => (
         <Text fontSize="lg">{title}</Text>
       </Box>
 
-      <NextLink href="/">
-        <chakra.a
-          href="/"
-          fontSize={{ base: "xl", sm: "2xl" }}
-          fontWeight="700"
-          transitionDuration="250ms"
-          _hover={{ color: "teal.400" }}
-        >
-          Back to home page
-        </chakra.a>
-      </NextLink>
+      <Button colorScheme="telegram" fontWeight="700">
+        <NextLink href="/">
+          <chakra.a href="/">Back to home page</chakra.a>
+        </NextLink>
+      </Button>
     </Box>
   </>
 );
