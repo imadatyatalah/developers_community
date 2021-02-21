@@ -1,7 +1,7 @@
-import { Box, Button, chakra, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, chakra, Heading } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-const Error = ({ statusCode, title }) => (
+const Error = ({ statusCode }) => (
   <>
     <Box
       as="section"
@@ -19,7 +19,6 @@ const Error = ({ statusCode, title }) => (
             ? `An error ${statusCode} occurred on server`
             : "An error occurred on client"}
         </Heading>
-        <Text fontSize="lg">{title}</Text>
       </Box>
 
       <Button colorScheme="telegram" fontWeight="700">
