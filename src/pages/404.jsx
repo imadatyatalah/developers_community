@@ -3,9 +3,12 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 
 import { MAX_WIDTH } from "../../config";
+import SEO from "../components/seo";
 
 const Custom404 = () => (
   <>
+    <SEO title="Page not found" />
+
     <Box
       as="section"
       d="flex"
