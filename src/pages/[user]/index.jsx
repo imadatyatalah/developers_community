@@ -7,7 +7,7 @@ import { getUser } from "../../lib/user";
 import { getOrganization } from "../../lib/organization";
 import { getUserArticles } from "../../lib/userArticles";
 import { getOrganizationUsers } from "../../lib/organizationUsers";
-import ErrorPage from "../_error";
+import ErrorPage from "../404";
 import SEO from "../../components/seo";
 import UserProfile from "../../components/userProfile";
 import Article from "../../components/article";
@@ -48,12 +48,7 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
   );
 
   if (errorCode) {
-    return (
-      <ErrorPage
-        statusCode={errorCode.status}
-        title={`user ${errorCode.error}`}
-      />
-    );
+    return <ErrorPage />;
   }
 
   return (

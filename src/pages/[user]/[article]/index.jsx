@@ -7,7 +7,7 @@ import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
 import { getUserArticles } from "../../../lib/userArticles";
-import ErrorPage from "../../_error";
+import ErrorPage from "../../404";
 import SEO from "../../../components/seo";
 import ArticleBody from "../../../components/articleBody";
 import UserArticle from "../../../components/articleBody/userArticle";
@@ -44,12 +44,7 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
   );
 
   if (errorCode) {
-    return (
-      <ErrorPage
-        statusCode={errorCode.status}
-        title={`article ${errorCode.error}`}
-      />
-    );
+    return <ErrorPage />;
   }
 
   return (
