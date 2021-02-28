@@ -1,39 +1,29 @@
-import { chakra, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-
-const UserNameComp = ({ href, children }) => (
-  <>
-    <NextLink href={`/${href}`}>
-      <chakra.a
-        href={`/${href}`}
-        fontWeight="600"
-        color="black"
-        opacity="60%"
-        transitionDuration="250ms"
-        _hover={{ opacity: "100%" }}
-      >
-        {children}
-      </chakra.a>
-    </NextLink>
-  </>
-);
 
 const UserName = (props) => {
   const { user, organization } = props.data;
 
-  return (
-    <>
-      {organization && props.isUser ? (
-        <Text color="gray.600">
-          <UserNameComp href={user.username}>{user.name}</UserNameComp> for{" "}
-          <UserNameComp href={organization.username}>
-            {organization.name}
-          </UserNameComp>
+  if (organization && props.isUser) {
+    return (
+      <>
+        <NextLink href={user.username}>
+          <a className="articleUserName">{user.name}</a>
+        </NextLink>{" "}
+        <Text as="span" color="gray.600">
+          for{" "}
         </Text>
-      ) : (
-        <UserNameComp href={user.username}>{user.name}</UserNameComp>
-      )}
-    </>
+        <NextLink href={organization.username}>
+          <a className="articleUserName">{organization.name}</a>
+        </NextLink>
+      </>
+    );
+  }
+
+  return (
+    <NextLink href={user.username}>
+      <a className="articleUserName">{user.name}</a>
+    </NextLink>
   );
 };
 
