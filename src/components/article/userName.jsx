@@ -7,13 +7,13 @@ const UserName = (props) => {
   if (organization && props.isUser) {
     return (
       <>
-        <NextLink href={user.username}>
+        <NextLink href={`/${user.username}`}>
           <a className="articleUserName">{user.name}</a>
         </NextLink>{" "}
         <Text as="span" color="gray.600">
           for{" "}
         </Text>
-        <NextLink href={organization.username}>
+        <NextLink href={`/${organization.username}`}>
           <a className="articleUserName">{organization.name}</a>
         </NextLink>
       </>
@@ -21,7 +21,7 @@ const UserName = (props) => {
   }
 
   return (
-    <NextLink href={user.username}>
+    <NextLink href={`/${user.username}`}>
       <a className="articleUserName">{user.name}</a>
     </NextLink>
   );
