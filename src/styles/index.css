@@ -12,3 +12,27 @@
   border-top-right-radius: 0.375rem;
   border-top-left-radius: 0.375rem;
 }
+
+.articleUserName {
+  font-weight: 600;
+  color: black;
+  opacity: 60%;
+  transition-duration: 250ms;
+}
+
+.articleUserName:hover {
+  opacity: 100%;
+}
+
+.articleUserImage {
+  padding: 5px 5px 0;
+}
+
+.orgArticleUserImage {
+  margin-left: -2rem;
+  padding: 1.5rem 5px 0;
+}
+
+.articleOrgImage {
+  padding: 0 5px;
+}
