@@ -26,7 +26,6 @@ const UserProfile = (props) => {
             width="100"
             height="100"
             alt={name}
-            priority
             className={props.isOrganization ? "orgImage" : "userImage"}
           />
         </Box>

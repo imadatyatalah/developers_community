@@ -15,7 +15,6 @@ const OrganizationProfile = ({ data }) => {
               width="40"
               height="40"
               alt={data.name}
-              priority
               className="orgImage"
             />
           </chakra.a>

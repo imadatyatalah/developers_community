@@ -26,7 +26,6 @@ const OrganisationUsers = ({ data }) => (
                 height="40"
                 alt={user.name}
                 title={user.name}
-                priority
                 className="userImage"
               />
             </chakra.a>

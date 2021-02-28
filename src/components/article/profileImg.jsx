@@ -17,7 +17,6 @@ const ProfileImgComp = ({
           src={profileImg}
           width={size}
           height={size}
-          priority
           alt={profileImgAlt}
           className={styles}
         />

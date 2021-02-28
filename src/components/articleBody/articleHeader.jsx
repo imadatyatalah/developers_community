@@ -17,7 +17,6 @@ const ArticleHeader = (props) => {
             width="1000"
             height="420"
             alt={data.title}
-            priority
             className="articleCoverImage"
           />
         )}

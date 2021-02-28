@@ -34,7 +34,6 @@ const Header = ({ data, isOrganization }) => (
             width="60"
             height="60"
             alt={data.name}
-            priority
             className={isOrganization ? "orgImage" : "userImage"}
           />
         </chakra.a>
