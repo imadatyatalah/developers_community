@@ -42,10 +42,12 @@ const Home = ({ articles, listings }) => {
 };
 
 export const getServerSideProps = async () => {
-  const articles = await getArticles();
-  const listings = await getListings(4);
-
-  return { props: { articles, listings } };
+  return {
+    props: {
+      articles: await getArticles(),
+      listings: await getListings(4),
+    },
+  };
 };
 
 export default Home;
