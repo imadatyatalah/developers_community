@@ -1,7 +1,10 @@
 import { List, ListItem, Icon } from "@chakra-ui/react";
 import { FaBirthdayCake } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-import moment from "moment";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.extend(localizedFormat);
 
 const Item = ({ icon, children }) => (
   <>
@@ -23,7 +26,7 @@ const UserInfo = ({ data, isOrganization }) => (
       <Item icon={FaBirthdayCake}>
         {" "}
         Joined on{" "}
-        {isOrganization ? moment(data.joined_at).format("ll") : data.joined_at}
+        {isOrganization ? dayjs(data.joined_at).format("ll") : data.joined_at}
       </Item>
 
       {data.location && <Item icon={IoLocationSharp}> {data.location}</Item>}
