@@ -1,10 +1,8 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
-import dynamic from "next/dynamic";
-
-const UserInfo = dynamic(() => import("./userInfo"));
 
 import { MAX_WIDTH } from "../../../config";
+import UserInfo from "./userInfo";
 import SocialMediaAccounts from "./socialMediaAccounts";
 
 const UserProfile = (props) => {
