@@ -1,4 +1,4 @@
-import { Box, Button, chakra } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
@@ -28,7 +28,7 @@ const Custom404 = () => (
       <Box py="4">
         <Button colorScheme="telegram" fontWeight="700">
           <NextLink href="/">
-            <chakra.a href="/">Back to home page</chakra.a>
+            <a>Back to home page</a>
           </NextLink>
         </Button>
       </Box>

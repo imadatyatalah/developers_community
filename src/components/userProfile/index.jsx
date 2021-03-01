@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
 
 import { MAX_WIDTH } from "../../../config";
@@ -28,9 +28,9 @@ const UserProfile = (props) => {
           />
         </Box>
 
-        <Heading as="h1">{name}</Heading>
+        <h1 style={{ fontSize: "1.875rem", fontWeight: "700" }}>{name}</h1>
         {props.isOrganization && tag_line && <Text py="2">{tag_line}</Text>}
-        <Text py="2">{summary ? summary : "404 bio not found"}</Text>
+        <Text py="2">{summary || "404 bio not found"}</Text>
 
         <Box
           py="2"

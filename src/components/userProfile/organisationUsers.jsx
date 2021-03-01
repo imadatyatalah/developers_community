@@ -1,4 +1,4 @@
-import { Box, chakra, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
@@ -12,14 +12,12 @@ const OrganisationUsers = ({ data }) => (
       maxW={{ lg: "350px" }}
       isSideComp
     >
-      <Heading size="lg" fontWeight="600">
-        Meet the team
-      </Heading>
+      <h2 className="customHeading">Meet the team</h2>
 
       <Box pt="2">
         {data.map((user) => (
           <NextLink href={user.username} key={user.username}>
-            <chakra.a href={user.username} p="4px">
+            <a style={{ padding: "4px" }}>
               <NextImage
                 src={user.profile_image}
                 width="40"
@@ -28,7 +26,7 @@ const OrganisationUsers = ({ data }) => (
                 title={user.name}
                 className="userImage"
               />
-            </chakra.a>
+            </a>
           </NextLink>
         ))}
       </Box>

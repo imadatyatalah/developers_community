@@ -1,3 +1,9 @@
+.customHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
 .userImage {
   border-radius: 100%;
   background-color: white;
@@ -20,7 +26,13 @@
   transition-duration: 250ms;
 }
 
-.articleUserName:hover {
+.tag {
+  opacity: 65%;
+  transition-duration: 250ms;
+}
+
+.articleUserName:hover,
+.tag:hover {
   opacity: 100%;
 }
 
@@ -35,4 +47,27 @@
 
 .articleOrgImage {
   padding: 0 5px;
+}
+
+.smallTitle {
+  font-weight: 500;
+  transition-duration: 250ms;
+}
+
+.bigTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition-duration: 250ms;
+}
+
+.smallTitle:hover,
+.bigTitle:hover {
+  /* Color: Chakra UI Teal.400 */
+  color: #38b2ac;
+}
+
+@media screen and (min-width: 30em) {
+  .bigTitle {
+    font-size: 1.5rem;
+  }
 }

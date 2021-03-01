@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import NextImage from "next/image";
 
 import ArticleTags from "../article/articleTags";
@@ -24,9 +24,16 @@ const ArticleHeader = (props) => {
         <Box>
           {props.isOrganizationArticle && <OrganizationProfile data={data} />}
 
-          <Heading as="h1" pt="2">
+          <h1
+            style={{
+              fontSize: "1.875rem",
+              fontWeight: "700",
+              paddingTop: "0.5rem",
+              lineHeight: "1.33",
+            }}
+          >
             {data.title}
-          </Heading>
+          </h1>
 
           <Box py="2">
             <ArticleTags data={data.tags} />

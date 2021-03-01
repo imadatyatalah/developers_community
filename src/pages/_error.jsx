@@ -1,4 +1,4 @@
-import { Box, Button, chakra, Heading } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const Error = ({ statusCode }) => (
@@ -14,16 +14,16 @@ const Error = ({ statusCode }) => (
       p="5"
     >
       <Box py="4">
-        <Heading as="h1">
+        <h1 className="customHeading">
           {statusCode
             ? `An error ${statusCode} occurred on server`
             : "An error occurred on client"}
-        </Heading>
+        </h1>
       </Box>
 
       <Button colorScheme="telegram" fontWeight="700">
         <NextLink href="/">
-          <chakra.a href="/">Back to home page</chakra.a>
+          <a>Back to home page</a>
         </NextLink>
       </Button>
     </Box>

@@ -3,6 +3,7 @@ import {
   Button,
   chakra,
   Icon,
+  Link,
   List,
   ListItem,
   Text,
@@ -28,7 +29,7 @@ const Header = ({ data, isOrganization }) => (
   <>
     <Box mt="-35px">
       <NextLink href={`/${data.username}`}>
-        <chakra.a href={`/${data.username}`}>
+        <a>
           <NextImage
             src={data.profile_image}
             width="60"
@@ -36,7 +37,7 @@ const Header = ({ data, isOrganization }) => (
             alt={data.name}
             className={isOrganization ? "orgImage" : "userImage"}
           />
-        </chakra.a>
+        </a>
       </NextLink>
     </Box>
 
@@ -72,15 +73,15 @@ const UserInfo = ({ data, isOrganization }) => (
     {isOrganization && data.url && (
       <>
         <Button colorScheme="teal" variant="link">
-          <chakra.a
+          <Link
             href={data.url}
-            target="_blank"
-            rel="noopener noreferrer"
             d="flex"
+            _focus={{ outline: "none" }}
+            isExternal
           >
             Visit {data.username}{" "}
             <Icon as={FiExternalLink} w="6" h="6" pl="3px" />
-          </chakra.a>
+          </Link>
         </Button>
       </>
     )}
