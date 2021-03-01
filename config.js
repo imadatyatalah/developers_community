@@ -5,6 +5,7 @@ export default {
   },
   description:
     "Developers Community uses dev.to api endpoint to fetch data from, You can call it dev.to clone!",
+  canonical: "https://developers-community.vercel.app/",
 };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
