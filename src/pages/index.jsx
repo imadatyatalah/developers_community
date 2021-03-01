@@ -1,14 +1,16 @@
 import { Box } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 import useSwr from "swr";
 
-import { BASE_URL, fetcher, MAX_WIDTH } from "../../config";
+import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../config";
 import { getArticles } from "../lib/articles";
 import { getListings } from "../lib/listings";
-import SEO from "../components/seo";
 import Article from "../components/article";
 import Listings from "../components/listings";
 
 const Home = ({ articles, listings }) => {
+  const title = `Home | ${config.title}`;
+
   const { data: articlesData } = useSwr(`${BASE_URL}articles`, fetcher, {
     initialData: articles,
   });
@@ -23,7 +25,15 @@ const Home = ({ articles, listings }) => {
 
   return (
     <>
-      <SEO title="Home" />
+      <NextSeo
+        title={title}
+        description={config.description}
+        canonical={config.canonical}
+        openGraph={{
+          title: title,
+          description: config.description,
+        }}
+      />
 
       <Box
         as="section"

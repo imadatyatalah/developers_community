@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import { Box } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 import useSwr from "swr";
 
-import { BASE_URL, fetcher, MAX_WIDTH } from "../../../../config";
+import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../../config";
 import { getUserArticle } from "../../../lib/userArticle";
 import { getUser } from "../../../lib/user";
 import { getOrganization } from "../../../lib/organization";
 import { getUserArticles } from "../../../lib/userArticles";
 import ErrorPage from "../../404";
-import SEO from "../../../components/seo";
 import ArticleBody from "../../../components/articleBody";
 import UserArticle from "../../../components/articleBody/userArticle";
 import MoreFrom from "../../../components/articleBody/moreFrom";
@@ -47,9 +47,37 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
     return <ErrorPage />;
   }
 
+  const title = `${userArticle.title}${config.title}`;
+  const canonical = `${config.canonical}${userArticle.path.substring(1)}`;
+
   return (
     <>
-      <SEO title={userArticle.title} description={userArticle.description} />
+      <NextSeo
+        title={title}
+        description={userArticle.description}
+        canonical={canonical}
+        openGraph={{
+          title: title,
+          description: userArticle.description,
+          url: canonical,
+          type: "article",
+          images: [
+            {
+              url: userArticle.cover_image,
+              alt: userArticle.title,
+            },
+            {
+              url: userArticle.social_image,
+              alt: userArticle.title,
+            },
+          ],
+          article: {
+            publishedTime: userArticle.published_at,
+            modifiedTime: userArticle.edited_at,
+            authors: [`${config.canonical}${userArticle.user.username}`],
+          },
+        }}
+      />
 
       <Box
         display="flex"

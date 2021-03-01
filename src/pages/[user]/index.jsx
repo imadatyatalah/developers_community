@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import { Box } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 import useSwr from "swr";
 
-import { BASE_URL, fetcher, MAX_WIDTH } from "../../../config";
+import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../config";
 import { getUser } from "../../lib/user";
 import { getOrganization } from "../../lib/organization";
 import { getUserArticles } from "../../lib/userArticles";
 import { getOrganizationUsers } from "../../lib/organizationUsers";
 import ErrorPage from "../404";
-import SEO from "../../components/seo";
 import UserProfile from "../../components/userProfile";
 import Article from "../../components/article";
 import OrganisationTeam from "../../components/userProfile/organisationUsers";
@@ -51,11 +51,33 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
     return <ErrorPage />;
   }
 
+  const title = `${userInfo.name} | ${config.title}`;
+  const canonical = `${config.canonical}${userInfo.username}`;
+
   return (
     <>
-      <SEO
-        title={userInfo.name}
-        description={userInfo.summary || "404 bio not found"}
+      <NextSeo
+        title={title}
+        description={userInfo.summary}
+        canonical={canonical}
+        openGraph={{
+          title: title,
+          description: userInfo.summary,
+          url: canonical,
+          type: "profile",
+          profile: {
+            username: userInfo.username,
+            firstName: userInfo.name,
+          },
+          images: [
+            {
+              url: userInfo.profile_image,
+              width: userInfo.type_of == "user" ? "320px" : "640px",
+              height: userInfo.type_of == "user" ? "320px" : "640px",
+              alt: userInfo.name,
+            },
+          ],
+        }}
       />
 
       <UserProfile
