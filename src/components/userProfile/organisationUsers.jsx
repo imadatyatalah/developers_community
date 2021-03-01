@@ -16,7 +16,7 @@ const OrganisationUsers = ({ data }) => (
 
       <Box pt="2">
         {data.map((user) => (
-          <NextLink href={user.username} key={user.username}>
+          <NextLink href={`/${user.username}`} key={user.username}>
             <a style={{ padding: "4px" }}>
               <NextImage
                 src={user.profile_image}
