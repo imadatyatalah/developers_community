@@ -14,7 +14,7 @@ const ArticleInfo = (props) => {
       <>
         <Box as="header" display="flex" alignItems="center">
           <NextLink href={`/${data.organization.username}`}>
-            <a className="articleOrgImage">
+            <a className="articleOrgImage" aria-label={data.organization.name}>
               <NextImage
                 src={data.organization.profile_image_90}
                 width="40"
@@ -26,7 +26,7 @@ const ArticleInfo = (props) => {
           </NextLink>
 
           <NextLink href={`/${data.user.username}`}>
-            <a className="orgArticleUserImage">
+            <a className="orgArticleUserImage" aria-label={data.user.name}>
               <NextImage
                 src={data.user.profile_image_90}
                 width="30"
@@ -61,7 +61,7 @@ const ArticleInfo = (props) => {
     <>
       <Box as="header" display="flex" alignItems="center">
         <NextLink href={`/${data.user.username}`}>
-          <a className="articleUserImage">
+          <a className="articleUserImage" aria-label={data.user.name}>
             <NextImage
               src={data.user.profile_image_90}
               width="40"
