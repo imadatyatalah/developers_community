@@ -1,6 +1,8 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { DefaultSeo } from "next-seo";
 
 import Layout from "../components/layout";
+import SEO from "../../next-seo.config";
 
 import "@fontsource/poppins/latin-300.css";
 import "@fontsource/poppins/latin-400.css";
@@ -18,6 +20,8 @@ const theme = extendTheme({
 
 const MyApp = ({ Component, pageProps }) => (
   <>
+    <DefaultSeo {...SEO} />
+
     <ChakraProvider theme={theme}>
       <Layout>
         <Component {...pageProps} />
