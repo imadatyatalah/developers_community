@@ -10,6 +10,8 @@ import Listings from "../components/listings";
 
 const Home = ({ articles, listings }) => {
   const title = `Home | ${config.title}`;
+  const description = config.description;
+  const url = config.canonical;
 
   const { data: articlesData } = useSwr(`${BASE_URL}articles`, fetcher, {
     initialData: articles,
@@ -27,11 +29,12 @@ const Home = ({ articles, listings }) => {
     <>
       <NextSeo
         title={title}
-        description={config.description}
-        canonical={config.canonical}
+        description={description}
+        canonical={url}
         openGraph={{
-          title: title,
-          description: config.description,
+          title,
+          description,
+          url,
         }}
       />
 

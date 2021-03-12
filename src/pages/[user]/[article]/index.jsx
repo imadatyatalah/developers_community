@@ -43,23 +43,24 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
     }
   );
 
+  const title = `${userArticle.title}${config.title}`;
+  const description = userArticle.description;
+  const url = `${config.canonical}${userArticle.path.substring(1)}`;
+
   if (errorCode) {
     return <ErrorPage />;
   }
-
-  const title = `${userArticle.title}${config.title}`;
-  const canonical = `${config.canonical}${userArticle.path.substring(1)}`;
 
   return (
     <>
       <NextSeo
         title={title}
-        description={userArticle.description}
-        canonical={canonical}
+        description={description}
+        canonical={url}
         openGraph={{
-          title: title,
-          description: userArticle.description,
-          url: canonical,
+          title,
+          description,
+          url,
           type: "article",
           images: [
             {

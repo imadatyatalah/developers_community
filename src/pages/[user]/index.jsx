@@ -47,23 +47,24 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
     }
   );
 
+  const title = `${userInfo.name} | ${config.title}`;
+  const description = userInfo.summary;
+  const url = `${config.canonical}${userInfo.username}`;
+
   if (errorCode) {
     return <ErrorPage />;
   }
-
-  const title = `${userInfo.name} | ${config.title}`;
-  const canonical = `${config.canonical}${userInfo.username}`;
 
   return (
     <>
       <NextSeo
         title={title}
-        description={userInfo.summary}
-        canonical={canonical}
+        description={description}
+        canonical={url}
         openGraph={{
-          title: title,
-          description: userInfo.summary,
-          url: canonical,
+          title,
+          description,
+          url,
           type: "profile",
           profile: {
             username: userInfo.username,
