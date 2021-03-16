@@ -1,5 +1,5 @@
-import { Box } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box } from "@chakra-ui/react"
+import NextLink from "next/link"
 
 const ListingsHeader = () => (
   <>
@@ -16,6 +16,6 @@ const ListingsHeader = () => (
       </NextLink>
     </Box>
   </>
-);
+)
 
-export default ListingsHeader;
+export default ListingsHeader

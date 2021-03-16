@@ -1,4 +1,4 @@
-import NextLink from "next/link";
+import NextLink from "next/link"
 
 const ArticleTags = ({ data }) => (
   <>
@@ -8,6 +8,6 @@ const ArticleTags = ({ data }) => (
       </NextLink>
     ))}
   </>
-);
+)
 
-export default ArticleTags;
+export default ArticleTags

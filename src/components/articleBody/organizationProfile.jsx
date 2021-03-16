@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
-import NextLink from "next/link";
-import NextImage from "next/image";
+import { Box } from "@chakra-ui/react"
+import NextLink from "next/link"
+import NextImage from "next/image"
 
 const OrganizationProfile = ({ data }) => {
-  const href = `/${data.organization.username}`;
+  const href = `/${data.organization.username}`
 
   return (
     <>
@@ -27,7 +27,7 @@ const OrganizationProfile = ({ data }) => {
         </NextLink>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default OrganizationProfile;
+export default OrganizationProfile

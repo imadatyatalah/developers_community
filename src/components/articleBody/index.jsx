@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react"
 
-import ArticleHeader from "./articleHeader";
+import ArticleHeader from "./articleHeader"
 
 const ArticleBody = (props) => {
-  const { data } = props;
+  const { data } = props
 
   return (
     <>
@@ -14,7 +14,7 @@ const ArticleBody = (props) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ArticleBody;
+export default ArticleBody

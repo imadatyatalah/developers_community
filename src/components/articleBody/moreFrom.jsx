@@ -1,8 +1,8 @@
-import { Box, Divider } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Divider } from "@chakra-ui/react"
+import NextLink from "next/link"
 
-import DefaultContainer from "../UI/defaultContainer";
-import ArticleTags from "../article/articleTags";
+import DefaultContainer from "../UI/defaultContainer"
+import ArticleTags from "../article/articleTags"
 
 const Header = ({ user }) => (
   <>
@@ -16,7 +16,7 @@ const Header = ({ user }) => (
       </Box>
     </Box>
   </>
-);
+)
 
 const MoreFrom = ({ data, user }) => (
   <>
@@ -46,6 +46,6 @@ const MoreFrom = ({ data, user }) => (
       </Box>
     </DefaultContainer>
   </>
-);
+)
 
-export default MoreFrom;
+export default MoreFrom

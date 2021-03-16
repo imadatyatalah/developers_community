@@ -1,12 +1,12 @@
-import { Box, Text } from "@chakra-ui/react";
-import NextImage from "next/image";
+import { Box, Text } from "@chakra-ui/react"
+import NextImage from "next/image"
 
-import { MAX_WIDTH } from "../../../config";
-import UserInfo from "./userInfo";
-import SocialMediaAccounts from "./socialMediaAccounts";
+import { MAX_WIDTH } from "../../../config"
+import UserInfo from "./userInfo"
+import SocialMediaAccounts from "./socialMediaAccounts"
 
 const UserProfile = (props) => {
-  const { profile_image, name, summary, tag_line } = props.data;
+  const { profile_image, name, summary, tag_line } = props.data
 
   return (
     <>
@@ -43,7 +43,7 @@ const UserProfile = (props) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile

@@ -7,10 +7,10 @@ import {
   List,
   ListItem,
   Text,
-} from "@chakra-ui/react";
-import { FiExternalLink } from "react-icons/fi";
-import NextImage from "next/image";
-import NextLink from "next/link";
+} from "@chakra-ui/react"
+import { FiExternalLink } from "react-icons/fi"
+import NextImage from "next/image"
+import NextLink from "next/link"
 
 const Item = ({ title, data }) => (
   <>
@@ -23,7 +23,7 @@ const Item = ({ title, data }) => (
       </ListItem>
     )}
   </>
-);
+)
 
 const Header = ({ data, isOrganization }) => (
   <>
@@ -47,7 +47,7 @@ const Header = ({ data, isOrganization }) => (
       </chakra.a>
     </NextLink>
   </>
-);
+)
 
 const UserInfo = ({ data, isOrganization }) => (
   <>
@@ -86,6 +86,6 @@ const UserInfo = ({ data, isOrganization }) => (
       </>
     )}
   </>
-);
+)
 
-export default UserInfo;
+export default UserInfo

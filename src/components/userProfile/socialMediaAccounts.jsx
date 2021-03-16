@@ -1,6 +1,6 @@
-import { Icon, List, ListItem } from "@chakra-ui/react";
-import { FaTwitter, FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { Icon, List, ListItem } from "@chakra-ui/react"
+import { FaTwitter, FaGithub } from "react-icons/fa"
+import { FiExternalLink } from "react-icons/fi"
 
 const IconContainer = ({ data, href, icon, name }) => (
   <>
@@ -23,7 +23,7 @@ const IconContainer = ({ data, href, icon, name }) => (
       </ListItem>
     )}
   </>
-);
+)
 
 const SocialMediaAccounts = ({ data }) => (
   <>
@@ -55,6 +55,6 @@ const SocialMediaAccounts = ({ data }) => (
       />
     </List>
   </>
-);
+)
 
-export default SocialMediaAccounts;
+export default SocialMediaAccounts

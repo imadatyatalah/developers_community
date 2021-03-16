@@ -1,13 +1,13 @@
-import { Box, Text } from "@chakra-ui/react";
-import NextLink from "next/link";
-import NextImage from "next/image";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import { Box, Text } from "@chakra-ui/react"
+import NextLink from "next/link"
+import NextImage from "next/image"
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
 
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTime)
 
 const ArticleInfo = (props) => {
-  const { data } = props;
+  const { data } = props
 
   if (data.organization && props.isUser) {
     return (
@@ -54,7 +54,7 @@ const ArticleInfo = (props) => {
           </Box>
         </Box>
       </>
-    );
+    )
   }
 
   return (
@@ -83,7 +83,7 @@ const ArticleInfo = (props) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ArticleInfo;
+export default ArticleInfo

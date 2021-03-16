@@ -1,5 +1,5 @@
-import { Text } from "@chakra-ui/react";
-import DefaultContainer from "../UI/defaultContainer";
+import { Text } from "@chakra-ui/react"
+import DefaultContainer from "../UI/defaultContainer"
 
 const OrganizationTechStack = ({ data }) => (
   <>
@@ -13,6 +13,6 @@ const OrganizationTechStack = ({ data }) => (
       <Text>{data}</Text>
     </DefaultContainer>
   </>
-);
+)
 
-export default OrganizationTechStack;
+export default OrganizationTechStack

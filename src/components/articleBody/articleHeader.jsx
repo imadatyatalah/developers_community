@@ -1,12 +1,12 @@
-import { Box } from "@chakra-ui/react";
-import NextImage from "next/image";
+import { Box } from "@chakra-ui/react"
+import NextImage from "next/image"
 
-import ArticleTags from "../article/articleTags";
-import ArticleInfo from "../article/articleInfo";
-import OrganizationProfile from "./organizationProfile";
+import ArticleTags from "../article/articleTags"
+import ArticleInfo from "../article/articleInfo"
+import OrganizationProfile from "./organizationProfile"
 
 const ArticleHeader = (props) => {
-  const { data } = props;
+  const { data } = props
 
   return (
     <>
@@ -43,7 +43,7 @@ const ArticleHeader = (props) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ArticleHeader;
+export default ArticleHeader

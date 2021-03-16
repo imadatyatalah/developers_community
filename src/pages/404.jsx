@@ -1,9 +1,9 @@
-import { Box, Button } from "@chakra-ui/react";
-import Head from "next/head";
-import NextImage from "next/image";
-import NextLink from "next/link";
+import { Box, Button } from "@chakra-ui/react"
+import Head from "next/head"
+import NextImage from "next/image"
+import NextLink from "next/link"
 
-import { MAX_WIDTH } from "../../config";
+import { MAX_WIDTH } from "../../config"
 
 const Custom404 = () => (
   <>
@@ -36,6 +36,6 @@ const Custom404 = () => (
       </Box>
     </Box>
   </>
-);
+)
 
-export default Custom404;
+export default Custom404

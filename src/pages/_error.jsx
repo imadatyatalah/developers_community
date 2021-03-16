@@ -1,5 +1,5 @@
-import { Box, Button } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Button } from "@chakra-ui/react"
+import NextLink from "next/link"
 
 const Error = ({ statusCode }) => (
   <>
@@ -28,12 +28,12 @@ const Error = ({ statusCode }) => (
       </Button>
     </Box>
   </>
-);
+)
 
 Error.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
 
-  return { statusCode };
-};
+  return { statusCode }
+}
 
-export default Error;
+export default Error

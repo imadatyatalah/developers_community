@@ -6,13 +6,13 @@ export default {
   description:
     "Developers Community uses dev.to api endpoint to fetch data from, You can call it dev.to clone!",
   canonical: "https://developers-community.vercel.app/",
-};
+}
 
-export const fetcher = (url) => fetch(url).then((res) => res.json());
+export const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export const BASE_URL = "https://dev.to/api/";
+export const BASE_URL = "https://dev.to/api/"
 
-export const MAX_WIDTH = "1440px";
+export const MAX_WIDTH = "1440px"
 
 export const links = [
   { title: "Home", href: "/" },
@@ -21,4 +21,4 @@ export const links = [
   { title: "Podcasts", href: "/podcasts" },
   { title: "Videos", href: "/videos" },
   { title: "Tags", href: "/tags" },
-];
+]

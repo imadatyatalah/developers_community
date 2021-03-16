@@ -1,7 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react"
 
-import DefaultContainer from "../UI/defaultContainer";
-import UserInfo from "./userInfo";
+import DefaultContainer from "../UI/defaultContainer"
+import UserInfo from "./userInfo"
 
 const UserArticle = (props) => (
   <>
@@ -19,6 +19,6 @@ const UserArticle = (props) => (
       </Box>
     </DefaultContainer>
   </>
-);
+)
 
-export default UserArticle;
+export default UserArticle

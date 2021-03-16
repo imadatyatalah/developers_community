@@ -1,5 +1,5 @@
-import { Box } from "@chakra-ui/react";
-import NextHead from "next/head";
+import { Box } from "@chakra-ui/react"
+import NextHead from "next/head"
 
 const Layout = ({ children }) => (
   <>
@@ -14,6 +14,6 @@ const Layout = ({ children }) => (
       {children}
     </Box>
   </>
-);
+)
 
-export default Layout;
+export default Layout

@@ -1,21 +1,21 @@
-import { useRouter } from "next/router";
-import { Box } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
-import useSwr from "swr";
+import { useRouter } from "next/router"
+import { Box } from "@chakra-ui/react"
+import { NextSeo } from "next-seo"
+import useSwr from "swr"
 
-import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../../config";
-import { getUserArticle } from "../../../lib/userArticle";
-import { getUser } from "../../../lib/user";
-import { getOrganization } from "../../../lib/organization";
-import { getUserArticles } from "../../../lib/userArticles";
-import ErrorPage from "../../404";
-import ArticleBody from "../../../components/articleBody";
-import UserArticle from "../../../components/articleBody/userArticle";
-import MoreFrom from "../../../components/articleBody/moreFrom";
+import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../../config"
+import { getUserArticle } from "../../../lib/userArticle"
+import { getUser } from "../../../lib/user"
+import { getOrganization } from "../../../lib/organization"
+import { getUserArticles } from "../../../lib/userArticles"
+import ErrorPage from "../../404"
+import ArticleBody from "../../../components/articleBody"
+import UserArticle from "../../../components/articleBody/userArticle"
+import MoreFrom from "../../../components/articleBody/moreFrom"
 
 const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
-  const router = useRouter();
-  const { user, article } = router.query;
+  const router = useRouter()
+  const { user, article } = router.query
 
   const { data: articleData } = useSwr(
     `${BASE_URL}/articles/${user}/${article}`,
@@ -23,7 +23,7 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
     {
       initialData: userArticle,
     }
-  );
+  )
 
   const { data: userData } = useSwr(
     articleData.organization
@@ -33,7 +33,7 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
     {
       initialData: userInfo,
     }
-  );
+  )
 
   const { data: userArticlesData } = useSwr(
     `${BASE_URL}articles?username=${user}&per_page=3`,
@@ -41,14 +41,14 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
     {
       initialData: userArticles,
     }
-  );
+  )
 
-  const title = `${userArticle.title}${config.title}`;
-  const description = userArticle.description;
-  const url = `${config.canonical}${userArticle.path.substring(1)}`;
+  const title = `${userArticle.title}${config.title}`
+  const description = userArticle.description
+  const url = `${config.canonical}${userArticle.path.substring(1)}`
 
   if (errorCode) {
-    return <ErrorPage />;
+    return <ErrorPage />
   }
 
   return (
@@ -102,19 +102,19 @@ const Article = ({ userArticle, userInfo, userArticles, errorCode }) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
 export const getServerSideProps = async ({ params }) => {
-  const userArticle = await getUserArticle(params.user, params.article);
+  const userArticle = await getUserArticle(params.user, params.article)
   const userInfo = userArticle.organization
     ? await getOrganization(params.user)
-    : await getUser(params.user);
-  const userArticles = await getUserArticles(params.user, 3);
+    : await getUser(params.user)
+  const userArticles = await getUserArticles(params.user, 3)
 
-  const errorCode = userArticle.error ? userArticle : false;
+  const errorCode = userArticle.error ? userArticle : false
 
-  return { props: { userArticle, userInfo, userArticles, errorCode } };
-};
+  return { props: { userArticle, userInfo, userArticles, errorCode } }
+}
 
-export default Article;
+export default Article

@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import NextLink from "next/link";
-import NextImage from "next/image";
+import { Box } from "@chakra-ui/react"
+import NextLink from "next/link"
+import NextImage from "next/image"
 
-import DefaultContainer from "../UI/defaultContainer";
+import DefaultContainer from "../UI/defaultContainer"
 
 const OrganisationUsers = ({ data }) => (
   <>
@@ -32,6 +32,6 @@ const OrganisationUsers = ({ data }) => (
       </Box>
     </DefaultContainer>
   </>
-);
+)
 
-export default OrganisationUsers;
+export default OrganisationUsers

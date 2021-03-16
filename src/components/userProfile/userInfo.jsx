@@ -1,10 +1,10 @@
-import { List, ListItem, Icon } from "@chakra-ui/react";
-import { FaBirthdayCake } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/io5";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
+import { List, ListItem, Icon } from "@chakra-ui/react"
+import { FaBirthdayCake } from "react-icons/fa"
+import { IoLocationSharp } from "react-icons/io5"
+import dayjs from "dayjs"
+import localizedFormat from "dayjs/plugin/localizedFormat"
 
-dayjs.extend(localizedFormat);
+dayjs.extend(localizedFormat)
 
 const Item = ({ icon, children }) => (
   <>
@@ -13,7 +13,7 @@ const Item = ({ icon, children }) => (
       {children}
     </ListItem>
   </>
-);
+)
 
 const UserInfo = ({ data, isOrganization }) => (
   <>
@@ -32,6 +32,6 @@ const UserInfo = ({ data, isOrganization }) => (
       {data.location && <Item icon={IoLocationSharp}> {data.location}</Item>}
     </List>
   </>
-);
+)
 
-export default UserInfo;
+export default UserInfo

@@ -1,7 +1,7 @@
-import { Box, chakra, Icon } from "@chakra-ui/react";
-import { RiHeart2Line } from "react-icons/ri";
-import { BiMessageRounded } from "react-icons/bi";
-import NextLink from "next/link";
+import { Box, chakra, Icon } from "@chakra-ui/react"
+import { RiHeart2Line } from "react-icons/ri"
+import { BiMessageRounded } from "react-icons/bi"
+import NextLink from "next/link"
 
 const ActionsContainer = ({ href, icon, children }) => (
   <>
@@ -20,7 +20,7 @@ const ActionsContainer = ({ href, icon, children }) => (
       </chakra.a>
     </NextLink>
   </>
-);
+)
 
 const ArticleActions = ({ data }) => (
   <>
@@ -34,6 +34,6 @@ const ArticleActions = ({ data }) => (
       </ActionsContainer>
     </Box>
   </>
-);
+)
 
-export default ArticleActions;
+export default ArticleActions

@@ -1,10 +1,10 @@
-import { Box } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box } from "@chakra-ui/react"
+import NextLink from "next/link"
 
-import DefaultContainer from "../UI/defaultContainer";
-import ArticleInfo from "./articleInfo";
-import ArticleTags from "./articleTags";
-import ArticleActions from "./articleActions";
+import DefaultContainer from "../UI/defaultContainer"
+import ArticleInfo from "./articleInfo"
+import ArticleTags from "./articleTags"
+import ArticleActions from "./articleActions"
 
 const Article = ({ data, userData, isProfile, isUser }) => (
   <>
@@ -32,6 +32,6 @@ const Article = ({ data, userData, isProfile, isUser }) => (
       ))}
     </Box>
   </>
-);
+)
 
-export default Article;
+export default Article

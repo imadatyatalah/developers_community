@@ -1,4 +1,4 @@
-import config from "./config";
+import config from "./config"
 
 export default {
   openGraph: {
@@ -7,4 +7,4 @@ export default {
     url: config.canonical,
     site_name: config.title,
   },
-};
+}

@@ -1,8 +1,8 @@
-import { Box, Divider } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Divider } from "@chakra-ui/react"
+import NextLink from "next/link"
 
-import DefaultContainer from "../UI/defaultContainer";
-import ListingsHeader from "./listingsHeader";
+import DefaultContainer from "../UI/defaultContainer"
+import ListingsHeader from "./listingsHeader"
 
 const Listing = ({ data }) => (
   <>
@@ -29,6 +29,6 @@ const Listing = ({ data }) => (
       </Box>
     </DefaultContainer>
   </>
-);
+)
 
-export default Listing;
+export default Listing

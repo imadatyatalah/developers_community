@@ -1,22 +1,22 @@
-import { useRouter } from "next/router";
-import { Box } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
-import useSwr from "swr";
+import { useRouter } from "next/router"
+import { Box } from "@chakra-ui/react"
+import { NextSeo } from "next-seo"
+import useSwr from "swr"
 
-import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../config";
-import { getUser } from "../../lib/user";
-import { getOrganization } from "../../lib/organization";
-import { getUserArticles } from "../../lib/userArticles";
-import { getOrganizationUsers } from "../../lib/organizationUsers";
-import ErrorPage from "../404";
-import UserProfile from "../../components/userProfile";
-import Article from "../../components/article";
-import OrganisationTeam from "../../components/userProfile/organisationUsers";
-import OrganisationTechStack from "../../components/userProfile/organizationTechStack";
+import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../../config"
+import { getUser } from "../../lib/user"
+import { getOrganization } from "../../lib/organization"
+import { getUserArticles } from "../../lib/userArticles"
+import { getOrganizationUsers } from "../../lib/organizationUsers"
+import ErrorPage from "../404"
+import UserProfile from "../../components/userProfile"
+import Article from "../../components/article"
+import OrganisationTeam from "../../components/userProfile/organisationUsers"
+import OrganisationTechStack from "../../components/userProfile/organizationTechStack"
 
 const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
-  const router = useRouter();
-  const { user } = router.query;
+  const router = useRouter()
+  const { user } = router.query
 
   const { data: userInfoData } = useSwr(
     userInfo.type_of === "user"
@@ -26,7 +26,7 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
     {
       initialData: userInfo,
     }
-  );
+  )
 
   const { data: userArticlesData } = useSwr(
     userInfo.type_of === "user"
@@ -36,7 +36,7 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
     {
       initialData: userArticles,
     }
-  );
+  )
 
   const { data: organizationUsersData } = useSwr(
     userInfoData.type_of === "organization" &&
@@ -45,14 +45,14 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
     {
       initialData: organizationUsers,
     }
-  );
+  )
 
-  const title = `${userInfo.name} | ${config.title}`;
-  const description = userInfo.summary;
-  const url = `${config.canonical}${userInfo.username}`;
+  const title = `${userInfo.name} | ${config.title}`
+  const description = userInfo.summary
+  const url = `${config.canonical}${userInfo.username}`
 
   if (errorCode) {
-    return <ErrorPage />;
+    return <ErrorPage />
   }
 
   return (
@@ -109,22 +109,22 @@ const User = ({ userInfo, userArticles, organizationUsers, errorCode }) => {
         )}
       </Box>
     </>
-  );
-};
+  )
+}
 
 export const getServerSideProps = async ({ params }) => {
-  const user = await getUser(params.user);
+  const user = await getUser(params.user)
 
   const userInfo =
-    user.type_of === "user" ? user : await getOrganization(params.user);
+    user.type_of === "user" ? user : await getOrganization(params.user)
 
-  const userArticles = await getUserArticles(params.user, 30);
+  const userArticles = await getUserArticles(params.user, 30)
 
-  const organizationUsers = await getOrganizationUsers(params.user);
+  const organizationUsers = await getOrganizationUsers(params.user)
 
-  const errorCode = userInfo.error ? userInfo : false;
+  const errorCode = userInfo.error ? userInfo : false
 
-  return { props: { userInfo, userArticles, organizationUsers, errorCode } };
-};
+  return { props: { userInfo, userArticles, organizationUsers, errorCode } }
+}
 
-export default User;
+export default User

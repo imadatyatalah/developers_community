@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react"
 
 const DefaultContainer = ({ children, isSideComp, ...props }) => (
   <>
@@ -19,6 +19,6 @@ const DefaultContainer = ({ children, isSideComp, ...props }) => (
       {children}
     </Box>
   </>
-);
+)
 
-export default DefaultContainer;
+export default DefaultContainer
