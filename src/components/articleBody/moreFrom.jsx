@@ -1,4 +1,4 @@
-import { Box, Divider } from "@chakra-ui/react"
+import { Box, chakra, Divider } from "@chakra-ui/react"
 import NextLink from "next/link"
 
 import DefaultContainer from "../UI/defaultContainer"
@@ -9,9 +9,8 @@ const Header = ({ user }) => (
     <Box as="header">
       <Box fontSize="2xl" fontWeight="600">
         More from{" "}
-        <NextLink href={`/${user.username}`}>
-          {/* Color: Chakra UI Teal.400 */}
-          <a style={{ color: "#38b2ac" }}>{user.name}</a>
+        <NextLink href={`/${user.username}`} passHref>
+          <chakra.a color="teal.400">{user.name}</chakra.a>
         </NextLink>
       </Box>
     </Box>
@@ -33,8 +32,14 @@ const MoreFrom = ({ data, user }) => (
           <Box py="1" key={item.id}>
             <Divider />
             <Box>
-              <NextLink href={item.path}>
-                <a className="smallTitle">{item.title}</a>
+              <NextLink href={item.path} passHref>
+                <chakra.a
+                  fontWeight="500"
+                  transitionDuration="250ms"
+                  _hover={{ color: "teal.400" }}
+                >
+                  {item.title}
+                </chakra.a>
               </NextLink>
             </Box>
 

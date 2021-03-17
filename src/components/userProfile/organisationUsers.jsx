@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Heading } from "@chakra-ui/react"
 import NextLink from "next/link"
 import NextImage from "next/image"
 
@@ -12,7 +12,9 @@ const OrganisationUsers = ({ data }) => (
       maxW={{ lg: "350px" }}
       isSideComp
     >
-      <h2 className="customHeading">Meet the team</h2>
+      <Heading fontSize="2xl" fontWeight="600">
+        Meet the team
+      </Heading>
 
       <Box pt="2">
         {data.map((user) => (

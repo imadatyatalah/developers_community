@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box, chakra } from "@chakra-ui/react"
 import NextLink from "next/link"
 import NextImage from "next/image"
 
@@ -20,10 +20,16 @@ const OrganizationProfile = ({ data }) => {
           </a>
         </NextLink>
 
-        <NextLink href={href}>
-          <a style={{ paddingBottom: "5px" }} className="articleUserName">
+        <NextLink href={href} passHref>
+          <chakra.a
+            pb="5px"
+            fontWeight="600"
+            opacity="60%"
+            transitionDuration="250ms"
+            _hover={{ opacity: "100%" }}
+          >
             {data.organization.name}
-          </a>
+          </chakra.a>
         </NextLink>
       </Box>
     </>

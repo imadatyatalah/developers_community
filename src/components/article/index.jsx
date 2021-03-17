@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box, chakra, Heading } from "@chakra-ui/react"
 import NextLink from "next/link"
 
 import DefaultContainer from "../UI/defaultContainer"
@@ -10,7 +10,9 @@ const Article = ({ data, userData, isProfile, isUser }) => (
   <>
     <Box py="2" w="100%">
       {data != "" && (
-        <h2 className="customHeading">{isProfile && userData.name} Posts</h2>
+        <Heading fontSize="2xl" fontWeight="600">
+          {isProfile && userData.name} Posts
+        </Heading>
       )}
 
       {data.map((article) => (
@@ -18,8 +20,15 @@ const Article = ({ data, userData, isProfile, isUser }) => (
           <ArticleInfo data={article} isUser={isUser} />
 
           <Box px={{ base: "5px", md: "50px" }}>
-            <NextLink href={article.path}>
-              <a className="bigTitle">{article.title}</a>
+            <NextLink href={article.path} passHref>
+              <chakra.a
+                fontSize={["xl", "2xl"]}
+                fontWeight="700"
+                transitionDuration="250ms"
+                _hover={{ color: "teal.400" }}
+              >
+                {article.title}
+              </chakra.a>
             </NextLink>
 
             <Box>

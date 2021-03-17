@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react"
+import { Box, chakra, Text } from "@chakra-ui/react"
 import NextLink from "next/link"
 import NextImage from "next/image"
 import dayjs from "dayjs"
@@ -38,14 +38,28 @@ const ArticleInfo = (props) => {
           </NextLink>
 
           <Box>
-            <NextLink href={`/${data.user.username}`}>
-              <a className="articleUserName">{data.user.name}</a>
+            <NextLink href={`/${data.user.username}`} passHref>
+              <chakra.a
+                fontWeight="600"
+                opacity="60%"
+                transitionDuration="250ms"
+                _hover={{ opacity: "100%" }}
+              >
+                {data.user.name}
+              </chakra.a>
             </NextLink>{" "}
             <Text as="span" color="gray.600">
               for{" "}
             </Text>
-            <NextLink href={`/${data.organization.username}`}>
-              <a className="articleUserName">{data.organization.name}</a>
+            <NextLink href={`/${data.organization.username}`} passHref>
+              <chakra.a
+                fontWeight="600"
+                opacity="60%"
+                transitionDuration="250ms"
+                _hover={{ opacity: "100%" }}
+              >
+                {data.organization.name}
+              </chakra.a>
             </NextLink>
             <Text fontSize="sm" fontWeight="300">
               {data.readable_publish_date} ({dayjs(data.published_at).fromNow()}
@@ -73,8 +87,15 @@ const ArticleInfo = (props) => {
         </NextLink>
 
         <Box>
-          <NextLink href={`/${data.user.username}`}>
-            <a className="articleUserName">{data.user.name}</a>
+          <NextLink href={`/${data.user.username}`} passHref>
+            <chakra.a
+              fontWeight="600"
+              opacity="60%"
+              transitionDuration="250ms"
+              _hover={{ opacity: "100%" }}
+            >
+              {data.user.name}
+            </chakra.a>
           </NextLink>
 
           <Text fontSize="sm" fontWeight="300">

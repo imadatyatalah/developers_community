@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react"
+import { Heading, Text } from "@chakra-ui/react"
 import DefaultContainer from "../UI/defaultContainer"
 
 const OrganizationTechStack = ({ data }) => (
@@ -9,7 +9,9 @@ const OrganizationTechStack = ({ data }) => (
       maxW={{ lg: "350px" }}
       isSideComp
     >
-      <h2 className="customHeading">Our stack</h2>
+      <Heading fontSize="2xl" fontWeight="600">
+        Our stack
+      </Heading>
       <Text>{data}</Text>
     </DefaultContainer>
   </>

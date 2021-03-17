@@ -14,11 +14,11 @@ const Error = ({ statusCode }) => (
       p="5"
     >
       <Box py="4">
-        <h1 className="customHeading">
+        <Heading as="h1" fontSize="2xl" fontWeight="600">
           {statusCode
             ? `An error ${statusCode} occurred on server`
             : "An error occurred on client"}
-        </h1>
+        </Heading>
       </Box>
 
       <Button colorScheme="telegram" fontWeight="700">
