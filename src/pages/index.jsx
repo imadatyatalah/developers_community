@@ -13,9 +13,13 @@ const Home = ({ articles, listings }) => {
   const description = config.description
   const url = config.canonical
 
-  const { data: articlesData } = useSwr(`${BASE_URL}articles`, fetcher, {
-    initialData: articles,
-  })
+  const { data: articlesData } = useSwr(
+    `${BASE_URL}articles?per_page=20`,
+    fetcher,
+    {
+      initialData: articles,
+    }
+  )
 
   const { data: listingsData } = useSwr(
     `${BASE_URL}listings?per_page=4`,
@@ -57,7 +61,7 @@ const Home = ({ articles, listings }) => {
 export const getServerSideProps = async () => {
   return {
     props: {
-      articles: await getArticles(),
+      articles: await getArticles(20),
       listings: await getListings(4),
     },
   }
