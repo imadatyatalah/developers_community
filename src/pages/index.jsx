@@ -1,33 +1,21 @@
 import { Box } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
-import useSwr from "swr"
+import { QueryClient, useQuery } from "react-query"
+import { dehydrate } from "react-query/hydration"
 
-import config, { BASE_URL, fetcher, MAX_WIDTH } from "../../config"
+import config, { MAX_WIDTH } from "../../config"
 import { getArticles } from "../lib/articles"
 import { getListings } from "../lib/listings"
 import Article from "../components/article"
 import Listings from "../components/listings"
 
-const Home = ({ articles, listings }) => {
+const Home = () => {
   const title = `Home | ${config.title}`
   const description = config.description
   const url = config.canonical
 
-  const { data: articlesData } = useSwr(
-    `${BASE_URL}articles?per_page=20`,
-    fetcher,
-    {
-      initialData: articles,
-    }
-  )
-
-  const { data: listingsData } = useSwr(
-    `${BASE_URL}listings?per_page=4`,
-    fetcher,
-    {
-      initialData: listings,
-    }
-  )
+  const { data: articles } = useQuery("articles", () => getArticles(20))
+  const { data: listings } = useQuery(["listings", 4], () => getListings(4))
 
   return (
     <>
@@ -51,18 +39,22 @@ const Home = ({ articles, listings }) => {
         px={[4, 6, 8]}
         mx="auto"
       >
-        <Article data={articlesData} isUser={!articlesData.organization} />
-        <Listings data={listingsData} />
+        <Article data={articles} isUser={!articles.organization} />
+        <Listings data={listings} />
       </Box>
     </>
   )
 }
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery("articles", () => getArticles(20))
+  await queryClient.prefetchQuery(["listings", 4], () => getListings(4))
+
   return {
     props: {
-      articles: await getArticles(20),
-      listings: await getListings(4),
+      dehydratedState: dehydrate(queryClient),
     },
   }
 }
