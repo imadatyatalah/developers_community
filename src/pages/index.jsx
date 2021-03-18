@@ -46,16 +46,15 @@ const Home = () => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery("articles", () => getArticles(20))
   await queryClient.prefetchQuery(["listings", 4], () => getListings(4))
 
   return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
+    props: { dehydratedState: dehydrate(queryClient) },
+    revalidate: 1,
   }
 }
 
